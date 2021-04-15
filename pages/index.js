@@ -1,65 +1,34 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Link from 'next/link'
+
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+      <div className="pl-32" style={{paddingBottom: 170,backgroundImage:`url(https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/aurora-background4.png)`, backgroundRepeat: "stretch", backgroundSize: 1920}}>
+        <div className="pt-10 text-white pr-32">
+          <Link  href="/">
+            <a>
+              <img className="float-left" src="https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/scantag-logo.svg"/>
+            </a>
+          </Link>
+          <Link href="/register">
+            <a className="text-xl font-semibold float-right" style={{borderRadius: 25, backgroundColor: "#FF9369", paddingLeft: 36, paddingRight: 36, paddingTop: 12, paddingBottom: 12}}>Sign Up</a>
+          </Link>
+          <Link href="/login">
+            <a className="text-xl font-semibold float-right pt-3 pr-5">Login</a>
+          </Link>
         </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+        
+        <div className="text-white pr-32 inline">
+          <h1 className="font-bold sm:text-6xl text-3xl pt-52 pb-5" style={{fontFamily: "Rubik", width: 550}}>The modern name<br/>tag you've been<br/>missing.</h1>
+          <h2 className="sm:text-xl pb-10 text-gray-100 text-sm" style={{width: 550}}>The simple way for anyone to assist locating their lost items.</h2>
+          
+          <Link href="/register">
+            <a className="text-3xl font-semibold" style={{borderRadius: 25, backgroundColor: "#FF9369", paddingLeft: 36, paddingRight: 36, paddingTop: 12, paddingBottom: 12}}>Sign Up</a>
+          </Link>
+          <img className="absolute right-52 bottom-0" style={{width: 400}} src="https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/scantag-mockup-edited2.png"/>
+          
+        </div>
+      </div>
   )
 }
