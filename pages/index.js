@@ -26,7 +26,7 @@ export default function Home() {
           <Link href="/register">
             <a className="text-3xl font-semibold" style={{borderRadius: 25, backgroundColor: "#FF9369", paddingLeft: 36, paddingRight: 36, paddingTop: 12, paddingBottom: 12}}>Sign Up</a>
           </Link>
-          <img className="absolute right-52 bottom-0" style={{width: 400}} src="https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/scantag-mockup-edited2.png"/>
+          <img className="absolute sm:right-52 bottom-0 sm:w-96 w-52" src="https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/scantag-mockup-edited2.png"/>
           
         </div>
       </div>
