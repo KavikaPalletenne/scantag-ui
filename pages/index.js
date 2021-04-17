@@ -19,7 +19,7 @@ export default function Home() {
         
         <header class="" style={{backgroundImage: `url(https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/aurora-background4.png)`}}>
             
-            <div class="md:pt-10 md:pl-32 text-white md:pr-32 pt-10 pl-10 pr-10">
+            <div class="md:pt-10 md:pl-32 text-white md:pr-32 pt-10 pl-5 pr-5">
                 <Link  href="/">
                     <a>
                         <img class="float-left md:w-20 w-12" src="https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/scantag-logo.svg"/>
@@ -35,7 +35,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <div class="container md:pl-32 md:pt-32 pt-32 mx-auto pl-10">
+            <div class="container md:pl-32 md:pt-32 pt-32 mx-auto pl-5">
                 <div class="items-center md:flex">
                     <div class="w-full md:w-1/2">
                         <div class="max-w-xl pr-4">
@@ -47,7 +47,7 @@ export default function Home() {
                         </div>
                     </div>
             
-                    <div class="flex items-center justify-center md:justify-center pr-10 md:pr-0 md:pl-32">
+                    <div class="flex items-center justify-center md:justify-center md:pl-32">
                         <img class="md:w-96 w-60" src="https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/scantag-mockup-edited2.png" alt=""/>
                     </div>
                 </div>
