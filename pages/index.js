@@ -27,7 +27,7 @@ export default function Home() {
                 </Link>
                 <div class="pt-2">
                     <Link href="/register">
-                        <a class="md:text-xl font-semibold float-right md:rounded-3xl md:pl-6 md:pr-6 md:pt-2 md:pb-2 text-lg pl-5 pr-5 pt-2 pb-2 rounded-3xl" style={{backgroundColor: "#FF9369"}}>Sign Up</a>
+                        <a class="md:text-xl font-semibold float-right md:rounded-3xl md:pl-6 md:pr-6 md:pt-2 md:pb-2 text-lg pl-5 pr-5 pt-2 pb-2 rounded-3xl bg-orange hover:bg-orange-light transition-colors duration-200">Sign Up</a>
                     </Link>
                     <Link href="/login">
                         <a class="md:text-xl font-semibold float-right md:pt-2 md:pr-5 text-lg pt-2 pr-3">Login</a>
@@ -42,7 +42,7 @@ export default function Home() {
                             <h1 class="text-3xl font-bold text-white dark:text-white md:text-7xl" style={{fontFamily: 'Rubik'}}>The modern name tag you've been missing.</h1>
                             <p class="mt-2 md:text-2xl text-gray-300 dark:text-gray-400 pb-10">The simple way for anyone to assist locating their lost items.</p>
                             <Link href="/register">
-                                <a class="md:text-3xl text-white font-semibold md:rounded-full md:pl-9 md:pr-9 md:pt-3 md:pb-3 text-lg pl-5 pr-5 pt-2 pb-2 rounded-3xl" style={{backgroundColor: "#FF9369"}}>Sign Up</a>
+                                <a class="md:text-3xl text-white font-semibold md:rounded-full md:pl-9 md:pr-9 md:pt-3 md:pb-3 text-lg pl-5 pr-5 pt-2 pb-2 rounded-3xl bg-orange hover:bg-orange-light transition-colors duration-200">Sign Up</a>
                             </Link>
                         </div>
                     </div>
@@ -137,7 +137,7 @@ export default function Home() {
                 </ul>
                 
                 <div class="text-center text-white dark:text-gray-200 pt-10 sm:pt-12 font-light flex items-center justify-center">
-                    Created by <a href="https://kavika.dev" className="pl-1 hover:text-gray-200">Kavika</a>
+                    Created by <a href="https://kavika.dev" className="pl-1 hover:text-gray-200 transition-colors duration-200">Kavika</a>
                 </div>
             </div>
         </footer>
