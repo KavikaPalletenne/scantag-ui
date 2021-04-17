@@ -89,7 +89,7 @@ export default function Home() {
                                 </div>
                                 <div class="px-4">
                                     <h3 class="my-1 text-xl font-semibold dark:text-white">
-                                        With no upfront costs, you only pay when you need.
+                                        With no upfront costs, you only pay when you need stickers.
                                     </h3>
                                 </div>
                             </li>
