@@ -17,7 +17,7 @@ export default function Home() {
         </Head>
 
         
-        <header class="" style={{backgroundImage: `url(https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/aurora-background4.png)`}}>
+        <header style={{backgroundImage: `url(https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/aurora-background4.png)`}}>
             
             <div class="md:pt-10 md:pl-32 text-white md:pr-32 pt-10 pl-5 pr-5">
                 <Link  href="/">
@@ -39,7 +39,7 @@ export default function Home() {
                 <div class="items-center md:flex">
                     <div class="w-full md:w-1/2">
                         <div class="max-w-xl pr-4">
-                            <h1 class="text-3xl font-bold text-white dark:text-white md:text-7xl">The modern name tag you've been missing.</h1>
+                            <h1 class="text-3xl font-bold text-white dark:text-white md:text-7xl" style={{fontFamily: 'Rubik'}}>The modern name tag you've been missing.</h1>
                             <p class="mt-2 text-gray-300 dark:text-gray-400 pb-10">The simple way for anyone to assist locating their lost items.</p>
                             <Link href="/register">
                                 <a class="md:text-xl text-white font-semibold md:rounded-3xl md:pl-9 md:pr-9 md:pt-3 md:pb-3 text-lg pl-5 pr-5 pt-2 pb-2 rounded-3xl" style={{backgroundColor: "#FF9369"}}>Sign Up</a>
