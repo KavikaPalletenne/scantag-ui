@@ -40,7 +40,7 @@ export default function Home() {
                     <div class="w-full md:w-1/2">
                         <div class="max-w-2xl pr-4">
                             <h1 class="text-3xl font-bold text-white dark:text-white md:text-7xl" style={{fontFamily: 'Rubik'}}>The modern name tag you've been missing.</h1>
-                            <p class="mt-2 md:text-2xl text-gray-300 dark:text-gray-400 pb-10">The simple way for anyone to assist locating their lost items.</p>
+                            <p class="mt-2 md:text-2xl text-gray-300 dark:text-gray-400 pb-10">The simple way for anyone to find lost items.</p>
                             <Link href="/register">
                                 <a class="md:text-3xl text-white font-semibold md:rounded-full md:pl-9 md:pr-9 md:pt-3 md:pb-3 text-lg pl-5 pr-5 pt-2 pb-2 rounded-3xl bg-orange hover:bg-orange-light transition-colors duration-200">Sign Up</a>
                             </Link>
