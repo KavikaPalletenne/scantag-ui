@@ -35,7 +35,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <div class="container md:pl-32 md:pt-32 pt-32 mx-auto pl-5">
+            <div class="container md:pl-32 md:pt-28 pt-24 mx-auto pl-5">
                 <div class="items-center md:flex">
                     <div class="w-full md:w-1/2">
                         <div class="max-w-2xl pr-4">
