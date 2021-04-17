@@ -63,7 +63,7 @@ export default function Home() {
                                 Ease of use, peace of mind.
                             </h2>
                             <p class="mb-8 leading-loose text-gray-500 dark:text-gray-300">
-                                Simply register your account, then input your desired information. After this your personalised QR code will be generated. Use this on anything you wish; your wallet, luggage, even your dog. Whenever someone has scans your code, we send you a notification so you know if someones found it. We even added messaging into the site so people can contact you faster than ever before.
+                                Simply register your account, then input your desired information. Your personalised QR code will then be generated. Use this on anything you wish; your wallet, luggage, even your dog. Whenever someone scans your code, we send you a notification so you know someone's found it.
                             </p>
                         </div>
                     </div>
