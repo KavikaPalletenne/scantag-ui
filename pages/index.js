@@ -38,7 +38,7 @@ export default function Home() {
             <div class="container md:pl-32 md:pt-32 pt-32 mx-auto pl-5">
                 <div class="items-center md:flex">
                     <div class="w-full md:w-1/2">
-                        <div class="max-w-xl pr-4">
+                        <div class="max-w-2xl pr-4">
                             <h1 class="text-3xl font-bold text-white dark:text-white md:text-7xl" style={{fontFamily: 'Rubik'}}>The modern name tag you've been missing.</h1>
                             <p class="mt-2 text-gray-300 dark:text-gray-400 pb-10">The simple way for anyone to assist locating their lost items.</p>
                             <Link href="/register">
