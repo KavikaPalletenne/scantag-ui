@@ -12,7 +12,7 @@ export default function Home() {
           <meta name="description" content="ScanTag allows you to easily find your lost items. Whenever someone scans your QR code, we send you a notification. The finder can also see your contact details on your personal ScanTag page." />
           <meta name="robots" content="all" />
           <meta name="googlebot" content="all" />
-          <title>ScanTag - Find Your Lost Items</title>
+          <title>ScanTag - Find Your Lost Items Quicker</title>
           <link rel="icon" href="https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/scantag-logo.svg" />
         </Head>
 
