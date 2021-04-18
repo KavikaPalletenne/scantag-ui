@@ -5,11 +5,11 @@
 @tailwind utilities;
 
 ::-moz-selection {
-  color: black;
+  color: white;
   background: #FFA582;
 }
 
 ::selection {
-  color: black;
+  color: white;
   background: #FFA582;
 }
