@@ -1,8 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import {SyntheticEvent, useState} from  'react'
-import axios from 'axios'
-import { fromJSON } from 'postcss';
 
 
 export default function Home() {
