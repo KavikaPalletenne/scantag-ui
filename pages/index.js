@@ -137,7 +137,7 @@ export default function Home() {
                 </ul>
                 
                 <div class="text-center text-white dark:text-gray-200 pt-10 sm:pt-12 font-light flex items-center justify-center">
-                    Created by <a href="https://kavika.dev" className="pl-1 hover:text-gray-200 transition-colors duration-200">Kavika</a>
+                    Made with <img src="https://www.clker.com/cliparts/8/E/s/U/g/4/orange-heart-md.png" alt="heart" width="20" height="20"> by ScanTag</a>
                 </div>
             </div>
         </footer>
