@@ -12,7 +12,7 @@ export default function Home() {
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
 
-        await fetch("https://scantag-api.herokuapp.com/api/v1/auth/forgotPassword?email=" + username, {
+        await fetch("http://api.universe.scantag.co/api/v1/auth/forgotPassword?email=" + username, {
             method: 'POST'
         }).then(function(response) {
             return response.json();
