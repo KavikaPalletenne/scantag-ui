@@ -18,7 +18,7 @@ export default function Home() {
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
 
-        await fetch("http://api.universe.scantag.co/api/v1/users/create", {
+        await fetch("https://api.scantag.co/api/v1/users/create", {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({

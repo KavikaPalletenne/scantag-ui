@@ -12,12 +12,12 @@ export default function Home() {
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
 
-        await fetch("http://api.universe.scantag.co/api/v1/auth/forgotPassword?email=" + username, {
+        await fetch("https://api.scantag.co/api/v1/auth/forgotPassword?email=" + username, {
             method: 'POST'
         }).then(function(response) {
             return response.json();
         }).then(function(json) {
-            message = json;
+            message = json.body;
         });
     }
     
