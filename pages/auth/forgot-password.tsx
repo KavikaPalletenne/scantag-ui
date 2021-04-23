@@ -39,7 +39,9 @@ export default function Home() {
             <div className="max-w-md w-full space-y-8">
                 <div>
                 <Link href="/">
-                    <img className="mx-auto h-100 w-auto" src="https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/scantag-logo.svg" alt="Workflow"/>
+                    <a>
+                        <img className="mx-auto h-100 w-auto" src="https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/scantag-logo.svg" alt="Workflow"/>
+                    </a>
                 </Link>
                 <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900" style={{fontFamily: "Rubik"}}>
                     Forgot your password?

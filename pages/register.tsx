@@ -18,19 +18,8 @@ export default function Home() {
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
 
-        await fetch("https://api.scantag.co/api/v1/users/create", {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                'email': email,
-                'password': password,
-                'role': role
-            })
-        }).then(function(response) {
-            console.log(response)
-            var pushUrl = "/auth/flow/new?email=" + email + "&password=" + password
-            router.push(pushUrl)
-        })
+        var pushUrl = "/auth/flow/new?email=" + email + "&password=" + password
+        router.push(pushUrl)
         
     }
     
@@ -52,7 +41,9 @@ export default function Home() {
             <div className="max-w-md w-full space-y-8">
                 <div>
                 <Link href="/">
-                    <img className="mx-auto h-100 w-auto" src="https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/scantag-logo.svg" alt="Workflow"/>
+                    <a>
+                        <img className="mx-auto h-100 w-auto" src="https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/scantag-logo.svg" alt="Workflow"/>
+                    </a>
                 </Link>
                 <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900" style={{fontFamily: "Rubik"}}>
                     Sign up for an account
@@ -82,7 +73,7 @@ export default function Home() {
 
                 <div>
                     <button type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-orange hover:bg-orange-light rounded-3xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange">
-                    Sign up
+                    Continue
                     </button>
                 </div>
                 </form>
