@@ -6,32 +6,38 @@ import {SyntheticEvent, useState} from  'react'
 
 export default function AuthFlowNew() {
     
-    const [email, setEmail] = useState('');
+    const router = useRouter()
+
+    const {email} = router.query
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [contactNumber, setContactNumber] = useState('')
     const [address, setAddress] = useState('')
-    const [password, setPassword] = useState('');
+    const {password} = router.query
     const role = "general"
 
-    const router = useRouter()
 
 
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
-
+        
         await fetch("https://api.scantag.co/api/v1/users/create", {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 'email': email,
                 'password': password,
+                'firstName': firstName,
+                'lastName': lastName,
+                'contactNumber': contactNumber,
+                'address': address,
                 'role': role
             })
-        }).then(function(response) {
-            console.log(response)
-            var pushUrl = "/auth/flow/new?email=" + email + "&password=" + password
-            router.push(pushUrl)
+        })
+            
+        router.push({
+            pathname: '/auth/flow/login',
+            query: { email: email, password: password }
         })
         
     }
