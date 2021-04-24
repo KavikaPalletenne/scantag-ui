@@ -37,7 +37,6 @@ export default function AuthFlowNew() {
 
             await fetch("https://api.scantag.co/api/v1/users/get/current", {
                 method: 'GET',
-                credentials: 'include',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': bearer
