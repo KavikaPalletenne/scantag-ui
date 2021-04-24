@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import {SyntheticEvent, useEffect, useState} from  'react'
+import {SyntheticEvent, useLayoutEffect, useState} from  'react'
 
 
 export default function AuthFlowNew() {
@@ -18,12 +18,39 @@ export default function AuthFlowNew() {
     const [address, setAddress] = useState('')
     const [info, setInfo] = useState('')
     const [enableNotifications, setEnableNotifications] = useState(true)
-    const [role, setRole] = useState('')
+    const [role, setRole] = useState('general')
 
     var tempJwt
     var tempUserId
 
-    useEffect(() => {
+    const submit = async (e: SyntheticEvent) => {
+        e.preventDefault();
+        
+        var bearer = 'Bearer ' + tempJwt;
+        
+        await fetch(`https://api.scantag.co/api/v1/users/update?id=${userId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': bearer
+            },
+            body: JSON.stringify({
+                'username': email,
+                'email': email,
+                'firstName': firstName,
+                'lastName': lastName,
+                'contactNumber': contactNumber,
+                'address': address,
+                'role': role
+            })
+        }).then(response => {
+            return response.json;
+        });
+        
+    }
+
+
+    useLayoutEffect(() => {
         
         let isMounted = true
 
@@ -79,32 +106,6 @@ export default function AuthFlowNew() {
         return () => { isMounted=false }
     })
     
-    const submit = async (e: SyntheticEvent) => {
-        e.preventDefault();
-        
-        var userUpdateId = "https://api.scantag.co/api/v1/users/update?id=" + userId
-
-        
-        await fetch(`https://api.scantag.co/api/v1/users/update?id=${userId}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + tempJwt
-            },
-            body: JSON.stringify({
-                'email': email,
-                'firstName': firstName,
-                'lastName': lastName,
-                'contactNumber': contactNumber,
-                'address': address,
-                'role': role
-            })
-        })
-        
-        console.log("Should have fetched")
-        
-    }
-
 
     
     return (
