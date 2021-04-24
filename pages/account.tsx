@@ -22,34 +22,15 @@ export default function AuthFlowNew() {
     const [enableNotifications, setEnableNotifications] = useState(true)
     const [role, setRole] = useState('general')
 
+    var tempfirstName
+    var tempLastName
+    var tempEmail
+    var tempContactNumber
+    var tempAddress
+    var tempInfo
+
     var tempJwt
     var tempUserId
-
-    const submit = async (e: SyntheticEvent) => {
-        e.preventDefault();
-        
-        var bearer = 'Bearer ' + tempJwt;
-        
-        await fetch(`https://api.scantag.co/api/v1/users/update?id=${userId}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': bearer
-            },
-            body: JSON.stringify({
-                'username': email,
-                'email': email,
-                'firstName': firstName,
-                'lastName': lastName,
-                'contactNumber': contactNumber,
-                'address': address,
-                'role': role
-            })
-        }).then(response => {
-            return response.json;
-        });
-        
-    }
 
 
     useEffect(() => {
@@ -106,8 +87,34 @@ export default function AuthFlowNew() {
         
         getUser()
         return () => { isMounted=false }
-    })
+    }, [])
     
+
+    const submit = (e: SyntheticEvent) => {
+        e.preventDefault();
+        
+
+        fetch(`https://api.scantag.co/api/v1/users/update?id=${userId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + jwt
+            },
+            body: JSON.stringify({
+                'username': email,
+                'email': email,
+                'firstName': firstName,
+                'lastName': lastName,
+                'contactNumber': contactNumber,
+                'address': address,
+                'role': role
+            })
+        }).then(function (response) {
+            if(response.ok) {
+                console.log("Successfully updated details")
+            }
+        })
+    }
 
     
     return (
