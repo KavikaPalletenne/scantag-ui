@@ -16,7 +16,7 @@ export default function Login() {
         function CheckLoggedIn() {
 
             if (localStorage.getItem('token') != null) {
-                router.push("/u/account")
+                router.push("/account")
             }
             return
         }
