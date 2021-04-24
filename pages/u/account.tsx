@@ -35,12 +35,13 @@ export default function AuthFlowNew() {
                     'Authorization': 'Bearer ' + jwt
                 }
             }).then(function(response) {
+                if(!response.ok) {
+                    router.push("login")
+                }
+                
                 return response.json();
             }).then(function(json) {  
                 if(isMounted) {
-                    if(json.userId == null) {
-                        router.push("/login")
-                    }
 
                     setUserId(json.userId)
                     localStorage.setItem('userId', userId)
