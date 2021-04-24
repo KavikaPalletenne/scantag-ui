@@ -22,10 +22,12 @@ export default function AuthFlowNew() {
 
     useEffect(() => {
         
+        let isMounted = true
+
         setJwt(localStorage.getItem('token'))
 
         async function getUser() {
-        
+
             await fetch("https://api.scantag.co/api/v1/users/get/current", {
                 method: 'GET',
                 headers: {
@@ -35,27 +37,28 @@ export default function AuthFlowNew() {
             }).then(function(response) {
                 return response.json();
             }).then(function(json) {  
+                if(isMounted) {
+                    if(json.userId == null) {
+                        router.push("/login")
+                    }
 
-                if(json.userId == null) {
-                    router.push("/login")
-                    return
+                    setUserId(json.userId)
+                    localStorage.setItem('userId', userId)
+
+                    setFirstname(json.firstName)
+                    setLastName(json.lastName)
+                    setEmail(json.email)
+                    setContactNumber(json.contactNumber)
+                    setAddress(json.address)
+                    setInfo(json.info)
+                    setEnableNotifications(json.enableNotifications)
                 }
-
-                setUserId(json.userId)
-                localStorage.setItem('userId', userId)
-
-                setFirstname(json.firstName)
-                setLastName(json.lastName)
-                setEmail(json.email)
-                setContactNumber(json.contactNumber)
-                setAddress(json.address)
-                setInfo(json.info)
-                setEnableNotifications(json.enableNotifications)
             });
-
+            
         }
-
+        
         getUser()
+        return () => { isMounted=false }
     })
 
     
