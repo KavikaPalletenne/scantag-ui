@@ -49,7 +49,7 @@ export default function Login() {
                 return
             }
 
-            router.push("/u/account")
+            router.push("/account")
         });
     }
     

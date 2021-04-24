@@ -37,7 +37,7 @@ export default function Login() {
 
                     localStorage.setItem('token', json.jwt)
                     
-                    router.push("/u/account")
+                    router.push("/account")
                 });
 
             }
