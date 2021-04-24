@@ -1,14 +1,18 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import {SyntheticEvent, useState} from  'react'
+import { useRouter } from 'next/router';
+import {SyntheticEvent, useEffect, useState} from  'react'
 
 
 export default function Login() {
     
+    const router = useRouter()
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    var [jwt, setJwt] = useState('');
-    var [flag, setFlag] = useState('');
+    
+
+    
     
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
@@ -27,11 +31,13 @@ export default function Login() {
             localStorage.setItem('token', json.jwt)
 
             if(json.jwt == null) {
-                console.error("Wrong credentials");
+                document.getElementById("invalidCredentialsText").className = "text-red-500 text-sm float-left pl-1 pb-5 pt-2"
+
                 localStorage.removeItem('token')
-                setFlag("2")
-                console.log(flag)
+                return
             }
+
+            router.push("/u/account")
         });
     }
     
@@ -82,14 +88,14 @@ export default function Login() {
                     <label htmlFor="password" className="sr-only">Password</label>
                     <input id="password" name="password" type="password" autoComplete="current-password" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:ring-orange focus:border-orange focus:z-10 sm:text-sm" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
                     </div>
-                
+                    <p id="invalidCredentialsText" className="text-transparent text-sm float-left pl-1 pb-5 pt-2">Invalid email or password</p>
                 </div>
 
                 <div>
                     <button type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-orange hover:bg-orange-light rounded-3xl focus:outline-none ">
                     Sign in
                     </button>
-                </div>
+                </div>               
 
                 <div className="flex items-center justify-center">
 
