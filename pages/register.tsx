@@ -2,9 +2,11 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import {SyntheticEvent, useState} from  'react'
+import Swal from 'sweetalert2'
+import PasswordStrengthBar from 'react-password-strength-bar';
 
 
-export default function Home() {
+export default function Register() {
     
     const [email, setEmail] = useState('');
     const [confirmEmail, setConfirmEmail] = useState('');
@@ -13,10 +15,34 @@ export default function Home() {
     const role = "general"
 
     const router = useRouter()
-
+   
 
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
+
+        if(email == confirmEmail) {
+            document.getElementById("confirmEmailText").className = "text-transparent text-xs float-right pr-1"
+        }
+
+        if(password == confirmPassword) {
+            document.getElementById("confirmPasswordText").className = "text-transparent text-xs float-right pr-1"
+        }
+        
+        if(email != confirmEmail) {
+            
+            document.getElementById("confirmEmailText").className = "text-red-500 text-xs float-right pr-1"
+            
+            if(password != confirmPassword) {
+                document.getElementById("confirmPasswordText").className = "text-red-500 text-xs float-right pr-1"
+            }
+
+            return
+        }
+
+        if(password != confirmPassword) {
+            document.getElementById("confirmPasswordText").className = "text-red-500 text-xs float-right pr-1"
+            return
+        }
 
         var pushUrl = "/auth/flow/new?email=" + email + "&password=" + password
         router.push(pushUrl)
@@ -69,24 +95,25 @@ export default function Home() {
                     <div>
                     <label htmlFor="confirmEmail" className="sr-only">Confirm email address</label>
                     <input id="confirmEmail" name="confirmEmail" type="email" autoComplete="email" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:ring-orange focus:border-orange focus:z-10 sm:text-sm" placeholder="Confirm email address" onChange={e => setConfirmEmail(e.target.value)}/>
+                    <p id="confirmEmailText" className="text-transparent text-xs float-right pr-1">Email does not match</p>
                     </div>
-                    <p id="confirmEmailError" className="text-sm pl-1 text-red-500">Emails do not match</p>
 
-                    <div className="pb-5 pt-5">
+                    <div className="pb-1 pt-5">
                     <label htmlFor="password" className="sr-only">Password</label>
                     <input id="password" name="password" type="password" autoComplete="new-password" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 rounded-t-md rounded-b-md text-gray-900 focus:outline-none focus:ring-orange focus:border-orange focus:z-10 sm:text-sm" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
+                    <PasswordStrengthBar password={password} />
                     </div>
 
                     <div>
                     <label htmlFor="confirmPassword" className="sr-only">Confirm password</label>
                     <input id="confirmPassword" name="confirmPassword" type="password" autoComplete="new-password" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 rounded-t-md rounded-b-md text-gray-900 focus:outline-none focus:ring-orange focus:border-orange focus:z-10 sm:text-sm" placeholder="Confirm password" onChange={e => setConfirmPassword(e.target.value)}/>
+                    <p id="confirmPasswordText" className="text-transparent text-xs float-right pr-1">Password does not match</p>
                     </div>
-                    <p id="confirmPasswordError" className="text-sm pl-1 text-red-500">Passwords do not match</p>
 
                 </div>
 
                 <div>
-                    <button type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-orange hover:bg-orange-light rounded-3xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange">
+                    <button type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-orange hover:bg-orange-light rounded-3xl focus:outline-none ">
                     Continue
                     </button>
                 </div>
