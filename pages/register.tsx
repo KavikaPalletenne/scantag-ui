@@ -44,8 +44,10 @@ export default function Register() {
             return
         }
 
-        var pushUrl = "/auth/flow/new?email=" + email + "&password=" + password
-        router.push(pushUrl)
+        router.push({
+            pathname: '/auth/flow/new',
+            query: { email: email, password: password }
+        })
         
     }
     
