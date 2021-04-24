@@ -7,6 +7,8 @@ import {SyntheticEvent, useLayoutEffect, useState} from  'react'
 export default function AuthFlowNew() {
     
     const router = useRouter()
+
+    const [isBusy, setBusy] = useState(true);
     
     // User Variables
     const [jwt, setJwt] = useState('')

@@ -8,6 +8,8 @@ export default function Login() {
     
     const router = useRouter()
 
+    const [isBusy, setBusy] = useState(true);
+
     const [errorMessage, setErrorMessage] = useState('')
 
     const {autologin} = router.query
