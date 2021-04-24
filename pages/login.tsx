@@ -3,7 +3,7 @@ import Link from 'next/link'
 import {SyntheticEvent, useState} from  'react'
 
 
-export default function Home() {
+export default function Login() {
     
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -86,7 +86,7 @@ export default function Home() {
                 </div>
 
                 <div>
-                    <button type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-orange hover:bg-orange-light rounded-3xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange">
+                    <button type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-orange hover:bg-orange-light rounded-3xl focus:outline-none ">
                     Sign in
                     </button>
                 </div>
