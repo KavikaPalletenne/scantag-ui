@@ -36,7 +36,7 @@ export default function AuthFlowNew() {
                 }
             }).then(function(response) {
                 if(!response.ok) {
-                    router.push("login")
+                    router.push("/login")
                 }
                 
                 return response.json();
