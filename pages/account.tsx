@@ -19,12 +19,15 @@ export default function AuthFlowNew() {
     const [info, setInfo] = useState('')
     const [enableNotifications, setEnableNotifications] = useState(true)
 
+    var tempJwt
 
     useEffect(() => {
         
         let isMounted = true
 
-        setJwt(localStorage.getItem('token'))
+        tempJwt = localStorage.getItem('token')
+
+        setJwt(tempJwt)
 
         async function getUser() {
 
@@ -32,16 +35,22 @@ export default function AuthFlowNew() {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + jwt
+                    'Authorization': 'Bearer ' + tempJwt
                 }
             }).then(function(response) {                
+                if(response.ok == false) {
+                    router.push({
+                        pathname: '/login',
+                        query: { autologin: false }
+                    })
+                    isMounted = false
+                }
+                if(isMounted) {
                 return response.json();
+                }
             }).then(function(json) {  
                 if(isMounted) {
 
-                    if(json.email == "empty") {
-                        router.push("/login")
-                    }
 
                     setUserId(json.userId)
                     localStorage.setItem('userId', userId)

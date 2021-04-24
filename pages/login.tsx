@@ -8,6 +8,10 @@ export default function Login() {
     
     const router = useRouter()
 
+    const [errorMessage, setErrorMessage] = useState('')
+
+    const {autologin} = router.query
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     
@@ -15,7 +19,7 @@ export default function Login() {
         
         function CheckLoggedIn() {
 
-            if (localStorage.getItem('token') != null) {
+            if (localStorage.getItem('token') != null && autologin != 'false') {
                 router.push("/account")
             }
             return
@@ -28,7 +32,7 @@ export default function Login() {
     
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
-
+        
         await fetch("https://api.scantag.co/api/v1/auth/authenticate", {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -44,7 +48,7 @@ export default function Login() {
 
             if(json.jwt == null) {
                 document.getElementById("invalidCredentialsText").className = "text-red-500 text-sm float-left pl-1 pb-5 pt-2"
-
+                setErrorMessage("Invalid email or password")
                 localStorage.removeItem('token')
                 return
             }
@@ -100,7 +104,7 @@ export default function Login() {
                     <label htmlFor="password" className="sr-only">Password</label>
                     <input id="password" name="password" type="password" autoComplete="current-password" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:ring-orange focus:border-orange focus:z-10 sm:text-sm" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
                     </div>
-                    <p id="invalidCredentialsText" className="text-transparent text-sm float-left pl-1 pb-5 pt-2">Invalid email or password</p>
+                    <p id="invalidCredentialsText" className="text-transparent text-sm float-left pl-1 pb-5 pt-2">{errorMessage}</p>
                 </div>
 
                 <div>

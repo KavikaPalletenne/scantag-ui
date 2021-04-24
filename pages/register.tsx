@@ -8,10 +8,13 @@ import PasswordStrengthBar from 'react-password-strength-bar';
 
 export default function Register() {
     
+    const [errorMessage, setErrorMessage] = useState('Emails do not match');
+
     const [email, setEmail] = useState('');
     const [confirmEmail, setConfirmEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [userExists, setUserExists] = useState(false);
     const role = "general"
 
     const router = useRouter()
@@ -20,17 +23,14 @@ export default function Register() {
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
 
-        if(email == confirmEmail) {
-            document.getElementById("confirmEmailText").className = "text-transparent text-xs float-right pr-1"
-        }
+        var getUserURL = "https://api.scantag.co/api/v1/users/getByEmail?email=" + email
 
-        if(password == confirmPassword) {
-            document.getElementById("confirmPasswordText").className = "text-transparent text-xs float-right pr-1"
-        }
-        
+        setErrorMessage('')
+
         if(email != confirmEmail) {
             
             document.getElementById("confirmEmailText").className = "text-red-500 text-xs float-right pr-1"
+            setErrorMessage('Email does not match')
             
             if(password != confirmPassword) {
                 document.getElementById("confirmPasswordText").className = "text-red-500 text-xs float-right pr-1"
@@ -44,11 +44,31 @@ export default function Register() {
             return
         }
 
-        router.push({
-            pathname: '/auth/flow/new',
-            query: { email: email, password: password }
-        })
-        
+        await fetch(getUserURL, {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'},
+        }).then(function(response) {
+            return response.json();
+        }).then(function(json) {
+
+            if(json.email != "empty") {
+                document.getElementById("confirmEmailText").className = "text-red-500 text-xs float-right pr-1"
+                setErrorMessage("User with email already exists")
+                setUserExists(true)
+
+                return
+            }
+
+            if(json.email == "empty") {
+                console.log(JSON.stringify(json))
+
+                router.push({
+                    pathname: '/auth/flow/new',
+                    query: { email: email, password: password}
+                })
+            }
+        });
+
     }
     
     return (
@@ -97,7 +117,7 @@ export default function Register() {
                     <div>
                     <label htmlFor="confirmEmail" className="sr-only">Confirm email address</label>
                     <input id="confirmEmail" name="confirmEmail" type="email" autoComplete="email" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:ring-orange focus:border-orange focus:z-10 sm:text-sm" placeholder="Confirm email address" onChange={e => setConfirmEmail(e.target.value)}/>
-                    <p id="confirmEmailText" className="text-transparent text-xs float-right pr-1">Email does not match</p>
+                    <p id="confirmEmailText" className="text-transparent text-xs float-right pr-1">{errorMessage}</p>
                     </div>
 
                     <div className="pb-1 pt-5">
