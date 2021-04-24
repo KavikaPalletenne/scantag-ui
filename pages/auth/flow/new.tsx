@@ -50,8 +50,8 @@ export default function Home() {
         </Head>
 
 
-        <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-md w-full space-y-8">
+        <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8" style={{backgroundImage: `url(https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/aurora-background4.png)`}}>
+            <div className="max-w-md w-full space-y-8 bg-gray-50 rounded-2xl p-10">
                 <div>
                 <Link href="/">
                     <a>

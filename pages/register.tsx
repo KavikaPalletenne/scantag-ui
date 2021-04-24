@@ -37,8 +37,8 @@ export default function Home() {
         </Head>
 
 
-        <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-md w-full space-y-8">
+        <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8" style={{backgroundImage: `url(https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/aurora-background4.png)`}}>
+            <div className="max-w-md w-full space-y-8 bg-gray-50 rounded-2xl p-10">
                 <div>
                 <Link href="/">
                     <a>
@@ -59,14 +59,26 @@ export default function Home() {
                 </div>
                 <form className="mt-8 space-y-6" onSubmit={submit}>
                 <input type="hidden" name="remember" value="true"/>
-                <div className="rounded-md shadow-sm -space-y-px">
-                    <div>
+                <div className="rounded-md -space-y-px">
+                    
+                    <div className="pb-5">
                     <label htmlFor="username" className="sr-only">Email address</label>
-                    <input id="username" name="username" type="email" autoComplete="email" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-orange focus:border-orange focus:z-10 sm:text-sm" placeholder="Email address" onChange={e => setEmail(e.target.value)}/>
+                    <input id="username" name="username" type="email" autoComplete="email" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:ring-orange focus:border-orange focus:z-10 sm:text-sm" placeholder="Email address" onChange={e => setEmail(e.target.value)}/>
                     </div>
-                    <div>
+
+                    <div className="pb-5">
+                    <label htmlFor="confirmEmail" className="sr-only">Confirm email address</label>
+                    <input id="confirmEmail" name="confirmEmail" type="email" autoComplete="email" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:ring-orange focus:border-orange focus:z-10 sm:text-sm" placeholder="Confirm email address" onChange={e => setEmail(e.target.value)}/>
+                    </div>
+
+                    <div className="pb-5">
                     <label htmlFor="password" className="sr-only">Password</label>
-                    <input id="password" name="password" type="password" autoComplete="current-password" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 rounded-b-md text-gray-900 focus:outline-none focus:ring-orange focus:border-orange focus:z-10 sm:text-sm" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
+                    <input id="password" name="password" type="password" autoComplete="new-password" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 rounded-t-md rounded-b-md text-gray-900 focus:outline-none focus:ring-orange focus:border-orange focus:z-10 sm:text-sm" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
+                    </div>
+
+                    <div>
+                    <label htmlFor="confirmPassword" className="sr-only">Confirm password</label>
+                    <input id="confirmPassword" name="confirmPassword" type="password" autoComplete="new-password" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 rounded-t-md rounded-b-md text-gray-900 focus:outline-none focus:ring-orange focus:border-orange focus:z-10 sm:text-sm" placeholder="Confirm password" onChange={e => setPassword(e.target.value)}/>
                     </div>
                     
                 </div>
