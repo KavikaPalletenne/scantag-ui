@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router';
-import {SyntheticEvent, useLayoutEffect, useState} from  'react'
+import {SyntheticEvent, useEffect, useState} from  'react'
 
 
 export default function Login() {
@@ -17,7 +17,7 @@ export default function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     
-    useLayoutEffect(() => {
+    useEffect(() => {
         
         function CheckLoggedIn() {
 

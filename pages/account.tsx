@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import {SyntheticEvent, useLayoutEffect, useState} from  'react'
+import {SyntheticEvent, useEffect, useState} from  'react'
 
 
 export default function AuthFlowNew() {
@@ -52,7 +52,7 @@ export default function AuthFlowNew() {
     }
 
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         
         let isMounted = true
 
