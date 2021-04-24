@@ -7,9 +7,9 @@ import {SyntheticEvent, useState} from  'react'
 export default function Home() {
     
     const [email, setEmail] = useState('');
-    const [firstName, setFirstName] = useState('');
-    const [LastName, setLastName] = useState('');
+    const [confirmEmail, setConfirmEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const role = "general"
 
     const router = useRouter()
@@ -66,21 +66,23 @@ export default function Home() {
                     <input id="username" name="username" type="email" autoComplete="email" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:ring-orange focus:border-orange focus:z-10 sm:text-sm" placeholder="Email address" onChange={e => setEmail(e.target.value)}/>
                     </div>
 
-                    <div className="pb-5">
+                    <div>
                     <label htmlFor="confirmEmail" className="sr-only">Confirm email address</label>
-                    <input id="confirmEmail" name="confirmEmail" type="email" autoComplete="email" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:ring-orange focus:border-orange focus:z-10 sm:text-sm" placeholder="Confirm email address" onChange={e => setEmail(e.target.value)}/>
+                    <input id="confirmEmail" name="confirmEmail" type="email" autoComplete="email" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:ring-orange focus:border-orange focus:z-10 sm:text-sm" placeholder="Confirm email address" onChange={e => setConfirmEmail(e.target.value)}/>
                     </div>
+                    <p id="confirmEmailError" className="text-sm pl-1 text-red-500">Emails do not match</p>
 
-                    <div className="pb-5">
+                    <div className="pb-5 pt-5">
                     <label htmlFor="password" className="sr-only">Password</label>
                     <input id="password" name="password" type="password" autoComplete="new-password" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 rounded-t-md rounded-b-md text-gray-900 focus:outline-none focus:ring-orange focus:border-orange focus:z-10 sm:text-sm" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
                     </div>
 
                     <div>
                     <label htmlFor="confirmPassword" className="sr-only">Confirm password</label>
-                    <input id="confirmPassword" name="confirmPassword" type="password" autoComplete="new-password" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 rounded-t-md rounded-b-md text-gray-900 focus:outline-none focus:ring-orange focus:border-orange focus:z-10 sm:text-sm" placeholder="Confirm password" onChange={e => setPassword(e.target.value)}/>
+                    <input id="confirmPassword" name="confirmPassword" type="password" autoComplete="new-password" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 rounded-t-md rounded-b-md text-gray-900 focus:outline-none focus:ring-orange focus:border-orange focus:z-10 sm:text-sm" placeholder="Confirm password" onChange={e => setConfirmPassword(e.target.value)}/>
                     </div>
-                    
+                    <p id="confirmPasswordError" className="text-sm pl-1 text-red-500">Passwords do not match</p>
+
                 </div>
 
                 <div>
