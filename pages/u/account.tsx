@@ -35,7 +35,12 @@ export default function AuthFlowNew() {
             }).then(function(response) {
                 return response.json();
             }).then(function(json) {  
-                
+
+                if(json.userId == null) {
+                    router.push("/login")
+                    return
+                }
+
                 setUserId(json.userId)
                 localStorage.setItem('userId', userId)
 

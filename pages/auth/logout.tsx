@@ -8,42 +8,17 @@ export default function Login() {
     
     const router = useRouter()
 
-    var [jwt, setJwt] = useState('');
-    const {email} = router.query
-    const {password} = router.query
-
     useEffect(() => {
         
-        async function Login() {
-            
-            
-            if(email != null && password != null) {
-                
-                await fetch("https://api.scantag.co/api/v1/auth/authenticate", {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({
-                        'username': email,
-                        'password': password
-                    })
-                }).then(function(response) {
-                    return response.json();
-                }).then(function(json) {  
-                    
-                    if(json.jwt == null) {
-                        router.push("/login")
-                        return
-                    }
+        function Logout() {
 
-                    localStorage.setItem('token', json.jwt)
-                    
-                    router.push("/u/account")
-                });
-
-            }
+            localStorage.removeItem('token')
+            localStorage.removeItem('userId')
+            
+            router.push("/")
         }
 
-        Login()
+        Logout()
     })
     
     
@@ -55,7 +30,7 @@ export default function Login() {
           <meta charSet="utf-8" />
           <meta name="robots" content="noindex" />
           <meta name="googlebot" content="noindex" />
-          <title>Logging you in... - ScanTag</title>
+          <title>Logging out of your account... - ScanTag</title>
           <link rel="icon" href="https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/scantag-logo.svg" />
         </Head>
 
@@ -68,7 +43,7 @@ export default function Login() {
                     </a>
                 </Link>
                 <h2 className="mt-6 text-center text-5xl font-extrabold text-gray-900" style={{fontFamily: "Rubik"}}>
-                    Logging you in...
+                    Logging out of your account...
                 </h2>
                        
             </div>

@@ -11,6 +11,18 @@ export default function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     
+    useEffect(() => {
+        
+        function CheckLoggedIn() {
+
+            if (localStorage.getItem('token') != null) {
+                router.push("/u/account")
+            }
+            return
+        }
+
+        CheckLoggedIn()
+    })
 
     
     
