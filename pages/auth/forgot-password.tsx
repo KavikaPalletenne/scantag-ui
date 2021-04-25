@@ -27,10 +27,9 @@ export default function ForgotPassword() {
 
         <Head>
           <meta charSet="utf-8" />
-          <meta name="description" content="Login to ScanTag - The Modern Name Tag" />
-          <meta name="robots" content="all" />
-          <meta name="googlebot" content="all" />
-          <title>Login - ScanTag</title>
+          <meta name="robots" content="noindex" />
+          <meta name="googlebot" content="noindex" />
+          <title>Forgot Password - ScanTag</title>
           <link rel="icon" href="https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/scantag-logo.svg" />
         </Head>
 
