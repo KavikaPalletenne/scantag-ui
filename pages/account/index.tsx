@@ -22,15 +22,7 @@ export default function AuthFlowNew() {
     const [enableNotifications, setEnableNotifications] = useState(true)
     const [role, setRole] = useState('general')
 
-    var tempfirstName
-    var tempLastName
-    var tempEmail
-    var tempContactNumber
-    var tempAddress
-    var tempInfo
-
     var tempJwt
-    var tempUserId
 
 
     useEffect(() => {
@@ -77,8 +69,6 @@ export default function AuthFlowNew() {
                     setInfo(json.info)
                     setEnableNotifications(json.enableNotifications)
                     setRole(json.role)
-
-                    tempUserId = json.userId
                     
                 }
             });
@@ -121,6 +111,13 @@ export default function AuthFlowNew() {
       
     <div>
         
+        <Head>
+          <meta charSet="utf-8" />
+          <meta name="robots" content="noindex" />
+          <meta name="googlebot" content="noindex" />
+          <title>My Account - ScanTag</title>
+          <link rel="icon" href="https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/scantag-logo.svg" />
+        </Head>
         
         <header>
             
@@ -131,9 +128,16 @@ export default function AuthFlowNew() {
                     </a>
                 </Link>
                 <div className="pt-2">
+                    <div>
                     <Link href="/auth/logout">
-                        <a className="md:text-xl font-semibold float-right md:rounded-3xl md:pl-6 md:pr-6 md:pt-2 md:pb-2 text-lg pl-5 pr-5 pt-2 pb-2 rounded-3xl bg-orange hover:bg-orange-light transition-colors duration-200">Logout</a>
+                        <a className="md:text-xl font-semibold float-right md:rounded-3xl md:pl-6 md:pr-6 md:pt-2 md:pb-2 text-md pl-5 pr-5 pt-2 pb-2 rounded-3xl bg-orange hover:bg-orange-light transition-colors duration-200">Logout</a>
                     </Link>
+                    </div>
+                    <div className="pr-24 md:pr-32">
+                    <Link href="/account/settings">
+                        <a className="md:text-xl font-semibold float-right text-md pl-5 pr-5 pt-2 pb-2 text-orange hover:text-orange-light transition-colors duration:200">Account Settings</a>
+                    </Link>
+                    </div>
                 </div>
             </div>
 
