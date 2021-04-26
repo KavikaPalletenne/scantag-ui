@@ -12,6 +12,7 @@ export default function AuthFlowNew() {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const {password} = router.query
+    const [role, setRole] = useState('general');
 
 
 
@@ -25,7 +26,8 @@ export default function AuthFlowNew() {
                 'email': email,
                 'password': password,
                 'firstName': firstName,
-                'lastName': lastName
+                'lastName': lastName,
+                'role': role
             })
         })
             
