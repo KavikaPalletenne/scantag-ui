@@ -16,11 +16,8 @@ export default function AuthFlowNew() {
     const [email, setEmail] = useState('')
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
-    const [contactNumber, setContactNumber] = useState('')
-    const [address, setAddress] = useState('')
-    const [info, setInfo] = useState('')
     const [enableNotifications, setEnableNotifications] = useState(true)
-    const [role, setRole] = useState('general')
+    const [role, setRole] = useState('');
 
     var tempJwt
 
@@ -64,9 +61,6 @@ export default function AuthFlowNew() {
                     setFirstName(json.firstName)
                     setLastName(json.lastName)
                     setEmail(json.email)
-                    setContactNumber(json.contactNumber)
-                    setAddress(json.address)
-                    setInfo(json.info)
                     setEnableNotifications(json.enableNotifications)
                     setRole(json.role)
                     
@@ -94,10 +88,7 @@ export default function AuthFlowNew() {
                 'username': email,
                 'email': email,
                 'firstName': firstName,
-                'lastName': lastName,
-                'contactNumber': contactNumber,
-                'address': address,
-                'role': role
+                'lastName': lastName
             })
         }).then(function (response) {
             if(response.ok) {
@@ -171,15 +162,6 @@ export default function AuthFlowNew() {
                             <input type="text" defaultValue={email} name="emailaddress" id="emailaddress" autoComplete="email" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onChange={e => setEmail(e.target.value)}/>
                         </div>
 
-                        <div className="col-span-6">
-                            <label htmlFor="streetaddress" className="block text-sm font-medium text-gray-700">Street address</label>
-                            <input type="text" defaultValue={address} name="streetaddress" id="streetaddress" autoComplete="street-address" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onChange={e => setAddress(e.target.value)}/>
-                        </div>
-                      
-                        <div className="col-span-6 sm:col-span-3 lg:col-span-2">
-                            <label htmlFor="mobilenumber" className="block text-sm font-medium text-gray-700">Mobile Number</label>
-                            <input type="text" defaultValue={contactNumber} name="mobilenumber" id="mobilenumber" autoComplete="tel" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onChange={e => setContactNumber(e.target.value)}/>
-                        </div>
                         </div>
                     </div>
                     <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
