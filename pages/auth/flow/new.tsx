@@ -11,8 +11,6 @@ export default function AuthFlowNew() {
     const {email} = router.query
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
-    const [contactNumber, setContactNumber] = useState('')
-    const [address, setAddress] = useState('')
     const {password} = router.query
     const role = "general"
 
@@ -29,8 +27,6 @@ export default function AuthFlowNew() {
                 'password': password,
                 'firstName': firstName,
                 'lastName': lastName,
-                'contactNumber': contactNumber,
-                'address': address,
                 'role': role
             })
         })
@@ -92,16 +88,6 @@ export default function AuthFlowNew() {
                     <input id="lastName" name="lastName" type="text" autoComplete="family-name" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 rounded-t-md rounded-b-md text-gray-900 focus:outline-none focus:ring-orange focus:border-orange focus:z-10 sm:text-sm" placeholder="Last Name" onChange={e => setLastName(e.target.value)}/>
                     </div>
 
-                    <div className="pb-5">
-                    <label htmlFor="contactNumber" className="sr-only">Mobile Number</label>
-                    <input id="contactNumber" name="contactNumber" type="text" autoComplete="tel" className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 rounded-t-md rounded-b-md text-gray-900 focus:outline-none focus:ring-orange focus:border-orange focus:z-10 sm:text-sm" placeholder="Mobile Phone" onChange={e => setContactNumber(e.target.value)}/>
-                    </div>
-                    
-                    <div className="">
-                    <label htmlFor="address" className="sr-only">Street Address</label>
-                    <input id="address" name="address" type="text" className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 rounded-t-md rounded-b-md text-gray-900 focus:outline-none focus:ring-orange focus:border-orange focus:z-10 sm:text-sm" placeholder="Street Address" onChange={e => setAddress(e.target.value)}/>
-                    </div>
-                    
                 </div>
 
                 <div>
