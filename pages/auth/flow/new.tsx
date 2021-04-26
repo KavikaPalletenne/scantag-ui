@@ -27,14 +27,7 @@ export default function AuthFlowNew() {
                 'email': email,
                 'password': password,
                 'firstName': firstName,
-<<<<<<< Updated upstream
-                'lastName': lastName,
-                'contactNumber': contactNumber,
-                'address': address,
-                'role': role
-=======
                 'lastName': lastName
->>>>>>> Stashed changes
             })
         })
             
