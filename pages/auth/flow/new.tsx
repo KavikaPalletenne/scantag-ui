@@ -14,7 +14,6 @@ export default function AuthFlowNew() {
     const [contactNumber, setContactNumber] = useState('')
     const [address, setAddress] = useState('')
     const {password} = router.query
-    const role = "general"
 
 
 
@@ -28,10 +27,14 @@ export default function AuthFlowNew() {
                 'email': email,
                 'password': password,
                 'firstName': firstName,
+<<<<<<< Updated upstream
                 'lastName': lastName,
                 'contactNumber': contactNumber,
                 'address': address,
                 'role': role
+=======
+                'lastName': lastName
+>>>>>>> Stashed changes
             })
         })
             
