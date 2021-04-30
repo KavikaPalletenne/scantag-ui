@@ -1,28 +1,9 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { useEffect } from 'react'
 
 
 export default function Home() {
     
-    const router = useRouter()
-    const {autologin} = router.query
-
-    useEffect(() => {
-        
-        function CheckLoggedIn() {
-
-            if (localStorage.getItem('token') != null && autologin != 'false') {
-                router.push("/account")
-            }
-            return
-        }
-
-        CheckLoggedIn()
-    }, [])
-  
-  
     return (
       
       <div>
