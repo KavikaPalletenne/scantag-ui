@@ -28,7 +28,7 @@ export default function Login() {
         }
 
         CheckLoggedIn()
-    })
+    }, [])
 
     
     

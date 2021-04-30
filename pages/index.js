@@ -15,7 +15,7 @@ export default function Home() {
         }
 
         CheckLoggedIn()
-    })
+    }, [])
   
   
     return (
