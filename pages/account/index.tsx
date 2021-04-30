@@ -88,10 +88,12 @@ export default function AuthFlowNew() {
                 'username': email,
                 'email': email,
                 'firstName': firstName,
-                'lastName': lastName
+                'lastName': lastName,
+                'role': role
             })
         }).then(function (response) {
             if(response.ok) {
+                document.getElementById("details-message").className = ""
                 console.log("Successfully updated details")
             }
         })
@@ -165,6 +167,8 @@ export default function AuthFlowNew() {
                         </div>
                     </div>
                     <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                        <p id="details-message" className = "text-transparent">Successfully updated details</p>
+                        <p id="unsuccessful-details-message" className="text-transparent">Unable to update details</p>
                         <button type="submit" className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-orange hover:bg-orange-light">
                         Save
                         </button>
