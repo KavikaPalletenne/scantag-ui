@@ -88,8 +88,7 @@ export default function AuthFlowNew() {
                 'username': email,
                 'email': email,
                 'firstName': firstName,
-                'lastName': lastName,
-                'role': role
+                'lastName': lastName
             })
         }).then(function (response) {
             if(response.ok) {
