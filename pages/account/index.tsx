@@ -19,6 +19,8 @@ export default function AuthFlowNew() {
     const [enableNotifications, setEnableNotifications] = useState(true)
     const [role, setRole] = useState('');
 
+    const [isDataLoaded, setDataLoaded] = useState(false);
+
     var tempJwt
 
 
@@ -64,6 +66,7 @@ export default function AuthFlowNew() {
                     setEnableNotifications(json.enableNotifications)
                     setRole(json.role)
                     
+                    setDataLoaded(true)
                 }
             });
             
@@ -97,7 +100,18 @@ export default function AuthFlowNew() {
         })
     }
 
+    // Basic loading screen - edit this to change loading screen
+    while (!isDataLoaded) {
+        return (
+            <div>
+                <h1 className="text-5xl">Loading</h1>
+            </div>
+        )
+    }
+
     
+    if (isDataLoaded) {
+
     return (
       
     <div>
@@ -179,4 +193,5 @@ export default function AuthFlowNew() {
 
     </div>
   )
+    }
 }
