@@ -3,7 +3,22 @@ import Link from 'next/link'
 
 
 export default function Home() {
-  return (
+  
+    useEffect(() => {
+        
+        function CheckLoggedIn() {
+
+            if (localStorage.getItem('token') != null && autologin != 'false') {
+                router.push("/account")
+            }
+            return
+        }
+
+        CheckLoggedIn()
+    })
+  
+  
+    return (
       
       <div>
 
