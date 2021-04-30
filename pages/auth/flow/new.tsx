@@ -27,7 +27,7 @@ export default function AuthFlowNew() {
                 'password': password,
                 'firstName': firstName,
                 'lastName': lastName,
-                'role': role
+                'role': 'general'
             })
         })
             
