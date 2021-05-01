@@ -62,14 +62,14 @@ export default function EditTag() {
 
                     setTagId(json.[0].tagId)
 
-                    setFirstName(json.[0].firstName)
-                    setLastName(json.[0].lastName)
-                    setTagName(json.[0].tagName)
-                    setEmail(json.[0].email)
-                    setContactNumber(json.[0].contactNumber)
-                    setAddress(json.[0].address)
-                    setInfo(json.[0].info)
-                    setEnableNotifications(json.[0].enableNotifications)
+                    setFirstName(json[0].firstName)
+                    setLastName(json[0].lastName)
+                    setTagName(json[0].tagName)
+                    setEmail(json[0].email)
+                    setContactNumber(json[0].contactNumber)
+                    setAddress(json[0].address)
+                    setInfo(json[0].info)
+                    setEnableNotifications(json[0].enableNotifications)
                     
                 }
             });
