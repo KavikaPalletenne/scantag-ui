@@ -60,7 +60,7 @@ export default function EditTag() {
             }).then(function(json) {  
                 if(isMounted) {
 
-                    setTagId(json.[0].tagId)
+                    setTagId(json[0].tagId)
 
                     setFirstName(json[0].firstName)
                     setLastName(json[0].lastName)
