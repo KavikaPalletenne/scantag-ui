@@ -90,12 +90,12 @@ export default function EditTag() {
                         
                         <div className="col-span-6 sm:col-span-3">
                             <label htmlFor="firstname" className="block text-sm font-medium text-gray-700">First name</label>
-                            <input type="text" defaultValue={firstName} name="firstname" disabled={true} id="firstname" autoComplete="given-name" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onChange={e => setFirstName(e.target.value)}/>
+                            <input type="text" defaultValue={firstName} name="firstname" disabled={true} id="firstname" autoComplete="given-name" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                         </div>
 
                         <div className="col-span-6 sm:col-span-3">
                             <label htmlFor="lastname" className="block text-sm font-medium text-gray-700">Last name</label>
-                            <input type="text" defaultValue={lastName} name="lastname" disabled={true} id="lastname" autoComplete="family-name" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onChange={e => setLastName(e.target.value)}/>
+                            <input type="text" defaultValue={lastName} name="lastname" disabled={true} id="lastname" autoComplete="family-name" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                         </div>
 
                         <div className="col-span-6 sm:col-span-3">
@@ -105,7 +105,7 @@ export default function EditTag() {
 
                         <div className="col-span-6 sm:col-span-3">
                             <label htmlFor="emailaddress" className="block text-sm font-medium text-gray-700">Email address</label>
-                            <input type="text" defaultValue={email} name="emailaddress" disabled={true} id="emailaddress" autoComplete="email" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onChange={e => setEmail(e.target.value)}/>
+                            <input type="text" defaultValue={email} name="emailaddress" disabled={true} id="emailaddress" autoComplete="email" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                         </div>
 
                         <div className="col-span-6 sm:col-span-3">
