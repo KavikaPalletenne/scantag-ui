@@ -101,7 +101,7 @@ export default function AuthFlowNew() {
             }
 
             if(!response.ok) {
-                document.getElementById("details-message").className = 'text-orange text-sm float-left'
+                document.getElementById("details-message").className = 'text-red-500 text-sm float-left'
                 setUpdateMessage('Unable to update details')
                 setTimeout(function(){ setUpdateMessage('') }, 5000)
                 setUpdateMessage('')
