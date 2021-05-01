@@ -17,7 +17,9 @@ export default function AuthFlowNew() {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [enableNotifications, setEnableNotifications] = useState(true)
-    const [role, setRole] = useState('');
+    const [role, setRole] = useState('')
+
+    const [detailsUpdateMessage, setUpdateMessage] = useState('')
 
     var tempJwt
 
@@ -77,6 +79,7 @@ export default function AuthFlowNew() {
     const submit = (e: SyntheticEvent) => {
         e.preventDefault();
         
+        setUpdateMessage('')
 
         fetch(`https://api.scantag.co/api/v1/users/update?id=${userId}`, {
             method: 'POST',
@@ -92,8 +95,16 @@ export default function AuthFlowNew() {
             })
         }).then(function (response) {
             if(response.ok) {
-                document.getElementById("details-message").className = ""
+                setUpdateMessage('Successfully updated details')
+                setTimeout(function(){ setUpdateMessage('') }, 5000)
                 console.log("Successfully updated details")
+            }
+
+            if(!response.ok) {
+                document.getElementById("details-message").className = 'text-orange text-sm float-left'
+                setUpdateMessage('Unable to update details')
+                setTimeout(function(){ setUpdateMessage('') }, 5000)
+                setUpdateMessage('')
             }
         })
     }
@@ -166,8 +177,7 @@ export default function AuthFlowNew() {
                         </div>
                     </div>
                     <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                        <p id="details-message" className = "text-transparent">Successfully updated details</p>
-                        <p id="unsuccessful-details-message" className="text-transparent">Unable to update details</p>
+                        <p id="details-message" className = "text-orange text-sm float-left">{detailsUpdateMessage}</p>
                         <button type="submit" className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-orange hover:bg-orange-light">
                         Save
                         </button>
