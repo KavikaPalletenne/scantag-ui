@@ -59,6 +59,12 @@ export default function Login() {
         }
         
         async function getUser() {
+            
+            bearer = 'Bearer ' + jwt
+
+            if(tempJwt != null) {
+            bearer = 'Bearer ' + tempJwt
+            }
 
             await fetch("https://api.scantag.co/api/v1/users/get/current", {
                 method: 'GET',
