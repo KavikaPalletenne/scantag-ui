@@ -60,7 +60,7 @@ export default function Login() {
         
         async function getUser() {
             
-            bearer = 'Bearer ' + jwt
+            var bearer = 'Bearer ' + jwt
 
             if(tempJwt != null) {
             bearer = 'Bearer ' + tempJwt
@@ -107,7 +107,7 @@ export default function Login() {
 
         Login()
 
-        var bearer = 'Bearer ' + tempJwt
+        tempJwt = localStorage.getItem('token')
 
         getUser()
         
