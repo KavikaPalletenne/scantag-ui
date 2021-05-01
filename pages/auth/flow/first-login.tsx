@@ -26,6 +26,8 @@ export default function Login() {
         
         let isMounted = true
 
+        var tempJwt
+
         function Login() {
             
             
@@ -49,13 +51,13 @@ export default function Login() {
 
                     localStorage.setItem('token', json.jwt)
                     setJwt(json.jwt)
+                    tempJwt = json.jwt
                     }
                 });
 
             }
         }
         
-        var tempJwt = localStorage.getItem('token')
         var bearer = 'Bearer ' + tempJwt
 
         async function getUser() {
