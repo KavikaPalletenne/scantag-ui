@@ -26,12 +26,12 @@ export default function Login() {
         
         let isMounted = true
 
-        async function Login() {
+        function Login() {
             
             
             if(email != null && password != null) {
                 
-                await fetch("https://api.scantag.co/api/v1/auth/authenticate", {
+                fetch("https://api.scantag.co/api/v1/auth/authenticate", {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({
