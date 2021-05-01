@@ -58,8 +58,6 @@ export default function Login() {
             }
         }
         
-        var bearer = 'Bearer ' + tempJwt
-
         async function getUser() {
 
             await fetch("https://api.scantag.co/api/v1/users/get/current", {
@@ -102,6 +100,9 @@ export default function Login() {
         }
 
         Login()
+
+        var bearer = 'Bearer ' + tempJwt
+
         getUser()
         
 
