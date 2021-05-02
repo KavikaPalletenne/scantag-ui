@@ -86,6 +86,17 @@ export default function EditTag() {
 
 
     return (
+        
+        <div>
+        
+        <Head>
+            <title>{firstName}'s ScanTag</title>
+            <meta charSet="utf-8" />
+            <meta name="robots" content="noindex" />
+            <meta name="googlebot" content="noindex" />
+            <link rel="icon" href="https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/scantag-logo.svg" />
+        </Head>
+        
         <div className="mt-10 sm:mt-0">
             
 
@@ -126,6 +137,7 @@ export default function EditTag() {
                 
                 </div>
             </div>
+        </div>
         </div>
     )
 }
