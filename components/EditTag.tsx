@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import {SyntheticEvent, useEffect, useState} from  'react'
+import QRCode from 'qrcode.react'
 
 
 
@@ -23,6 +24,7 @@ export default function EditTag() {
     const [enableNotifications, setEnableNotifications] = useState(false)
 
     const [tagUpdateMessage, setUpdateMessage] = useState('')
+    const [tagLink, setTagLink] = useState('')
 
     var tempJwt
 
@@ -70,6 +72,7 @@ export default function EditTag() {
                     setAddress(json[0].address)
                     setInfo(json[0].info)
                     setEnableNotifications(json[0].enableNotifications)
+                    setTagLink("https://scantag.com/tag/" + json[0].tagId)
                     
                 }
             });
@@ -157,6 +160,8 @@ export default function EditTag() {
                             <input type="text" defaultValue={contactNumber} name="contactnumber" id="contactnumber" autoComplete="tel" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onChange={e => setContactNumber(e.target.value)}/>
                         </div>
 
+                        <QRCode value={tagLink} renderAs='svg'/>
+
                         <div className="col-span-6 sm:col-span-4">
                             <label htmlFor="address" className="block text-sm font-medium text-gray-700">Return address</label>
                             <input type="text" defaultValue={address} name="address" id="address" autoComplete="street-address" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onChange={e => setAddress(e.target.value)}/>
@@ -166,7 +171,7 @@ export default function EditTag() {
                             <label htmlFor="info" className="block text-sm font-medium text-gray-700">Additional info</label>
                             <input type="text" defaultValue={info} name="info" id="info" autoComplete="none" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onChange={e => setInfo(e.target.value)}/>
                         </div>
-
+                        
                         </div>
                     </div>
                     <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
@@ -177,6 +182,9 @@ export default function EditTag() {
                     </div>
                     </div>
                 </form>
+
+                
+
                 </div>
             </div>
         </div>
