@@ -28,12 +28,12 @@ export default function Login() {
 
         var tempJwt
 
-        function Login() {
+        async function Login() {
             
             
             if(email != null && password != null) {
                 
-                fetch("https://api.scantag.co/api/v1/auth/authenticate", {
+                await fetch("https://api.scantag.co/api/v1/auth/authenticate", {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({
@@ -44,14 +44,15 @@ export default function Login() {
                     return response.json();
                 }).then(function(json) {  
                     if(isMounted) {
+                    
+                    localStorage.setItem('token', json.jwt)
+                    setJwt(json.jwt)
+                    tempJwt = json.jwt
+
                     if(json.jwt == null) {
                         router.push("/login")
                         return
                     }
-
-                    localStorage.setItem('token', json.jwt)
-                    setJwt(json.jwt)
-                    tempJwt = json.jwt
                     }
                 });
 
