@@ -61,11 +61,7 @@ export default function Login() {
         
         function getUser() {
             
-            var bearer = 'Bearer ' + jwt
-
-            if(tempJwt != null) {
-            bearer = 'Bearer ' + tempJwt
-            }
+            var bearer = 'Bearer ' + localStorage.getItem('token')
 
             fetch("https://api.scantag.co/api/v1/users/get/current", {
                 method: 'GET',
