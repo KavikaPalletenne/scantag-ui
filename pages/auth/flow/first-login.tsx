@@ -59,11 +59,11 @@ export default function Login() {
             }
         }
         
-        function getUser() {
+        async function getUser() {
             
             var bearer = 'Bearer ' + localStorage.getItem('token')
 
-            fetch("https://api.scantag.co/api/v1/users/get/current", {
+            await fetch("https://api.scantag.co/api/v1/users/get/current", {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -103,9 +103,6 @@ export default function Login() {
         }
 
         Login()
-
-        tempJwt = localStorage.getItem('token')
-
         getUser()
         
 
