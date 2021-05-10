@@ -75,7 +75,7 @@ export default function EditTag() {
         getTag()
         return () => { isMounted=false }
 
-    }, [router.isReady])
+    }, [router.isReady, firstName, lastName, tagName, email, contactNumber, address, info])
 
     while(loading) {
         return (
