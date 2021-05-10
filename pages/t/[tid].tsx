@@ -33,9 +33,9 @@ export default function EditTag() {
         let isMounted = true
     
 
-        function getTag() {
+        async function getTag() {
             
-        fetch(`https://api.scantag.co/api/v1/tags/get?tagId=${tid}`, {
+        await fetch(`https://api.scantag.co/api/v1/tags/get?tagId=${tid}`, {
                 method: 'GET'
             }).then(function(response) {                
                 
