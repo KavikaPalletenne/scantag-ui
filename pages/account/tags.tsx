@@ -13,6 +13,8 @@ export default function MyTags() {
     const [jwt, setJwt] = useState('')
     const [tagId, setTagId] = useState('')
 
+    const [role, setRole] = useState('')
+
     const [tagName, setTagName] = useState('')
     const [email, setEmail] = useState('')
     const [userId, setUserId] = useState('')
@@ -41,6 +43,45 @@ export default function MyTags() {
         setJwt(tempJwt)
 
         var bearer = 'Bearer ' + tempJwt
+
+
+        async function getUser() {
+
+            await fetch("https://api.scantag.co/api/v1/users/get/current", {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': bearer
+                }
+            }).then(function(response) {                
+                if(response.ok == false) {
+                    router.push({
+                        pathname: '/login',
+                        query: { autologin: false }
+                    })
+                    isMounted = false
+                }
+                if(isMounted) {
+                return response.json();
+                }
+            }).then(function(json) {  
+                if(isMounted) {
+
+
+                    setUserId(json.userId)
+                    localStorage.setItem('userId', json.userId)
+
+                    setFirstName(json.firstName)
+                    setLastName(json.lastName)
+                    setEmail(json.email)
+                    setEnableNotifications(json.enableNotifications)
+                    setRole(json.role)
+                    
+                }
+            });
+            
+        }
+
         
         async function getTag() {
             
@@ -84,6 +125,8 @@ export default function MyTags() {
             
         }
         
+        getUser()
+
         getTag()
         
         return () => { isMounted=false }
