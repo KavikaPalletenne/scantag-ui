@@ -92,37 +92,37 @@ export default function EditTag() {
                         
                         <div className="col-span-6 sm:col-span-3">
                             <label htmlFor="firstname" className="block text-sm font-medium text-gray-700">First name</label>
-                            <input type="text" defaultValue={firstName} name="firstname" disabled={true} id="firstname" autoComplete="given-name" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                            <input type="text" name="firstname" id="firstname" autoComplete="given-name" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                         </div>
 
                         <div className="col-span-6 sm:col-span-3">
                             <label htmlFor="lastname" className="block text-sm font-medium text-gray-700">Last name</label>
-                            <input type="text" defaultValue={lastName} name="lastname" disabled={true} id="lastname" autoComplete="family-name" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                            <input type="text" name="lastname" id="lastname" autoComplete="family-name" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                         </div>
 
                         <div className="col-span-6 sm:col-span-3">
                             <label htmlFor="tagname" className="block text-sm font-medium text-gray-700">Tag name</label>
-                            <input type="text" defaultValue={tagName} name="tagname" id="tagname" autoComplete="none" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onChange={e => setTagName(e.target.value)}/>
+                            <input type="text" name="tagname" id="tagname" autoComplete="none" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onChange={e => setTagName(e.target.value)}/>
                         </div>
 
                         <div className="col-span-6 sm:col-span-3">
                             <label htmlFor="emailaddress" className="block text-sm font-medium text-gray-700">Email address</label>
-                            <input type="text" defaultValue={email} name="emailaddress" disabled={true} id="emailaddress" autoComplete="email" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                            <input type="text" name="emailaddress" id="emailaddress" autoComplete="email" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                         </div>
 
                         <div className="col-span-6 sm:col-span-3">
                             <label htmlFor="contactnumber" className="block text-sm font-medium text-gray-700">Mobile number</label>
-                            <input type="text" defaultValue={contactNumber} name="contactnumber" id="contactnumber" autoComplete="tel" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onChange={e => setContactNumber(e.target.value)}/>
+                            <input type="text" name="contactnumber" id="contactnumber" autoComplete="tel" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onChange={e => setContactNumber(e.target.value)}/>
                         </div>
 
                         <div className="col-span-6 sm:col-span-4">
                             <label htmlFor="address" className="block text-sm font-medium text-gray-700">Return address</label>
-                            <input type="text" defaultValue={address} name="address" id="address" autoComplete="street-address" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onChange={e => setAddress(e.target.value)}/>
+                            <input type="text" name="address" id="address" autoComplete="street-address" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onChange={e => setAddress(e.target.value)}/>
                         </div>
 
                         <div className="col-span-6 sm:col-span-4">
                             <label htmlFor="info" className="block text-sm font-medium text-gray-700">Additional info</label>
-                            <input type="text" defaultValue={info} name="info" id="info" autoComplete="none" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onChange={e => setInfo(e.target.value)}/>
+                            <input type="text" name="info" id="info" autoComplete="none" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onChange={e => setInfo(e.target.value)}/>
                         </div>
 
                         </div>
@@ -130,7 +130,7 @@ export default function EditTag() {
                     <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
                         <p id="details-message" className = "text-orange text-sm float-left">{tagUpdateMessage}</p>
                         <button type="submit" className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-orange hover:bg-orange-light">
-                        Save
+                        Create Tag
                         </button>
                     </div>
                     </div>
