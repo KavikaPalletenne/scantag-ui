@@ -128,11 +128,6 @@ export default function MyTags() {
                 </header>
 
 
-                <h1>
-                    {tagId.length}
-                </h1>
-
-
                 <div className="mt-10 sm:mt-0">
                     {
                         tagId.length != 12 ?
