@@ -133,7 +133,7 @@ export default function MyTags() {
 
                 <div className="mt-10 sm:mt-0">
                     {
-                        tagId==null ?
+                        tagId.length != 12 ?
                         <CreateTag/> :
                         <EditTag/>
                     }
