@@ -78,7 +78,6 @@ export default function MyTags() {
 
                     setDataLoaded(true)
                     
-                    console.log("tagId length" + tagId.length)
                 }
             });
 
@@ -86,7 +85,6 @@ export default function MyTags() {
         }
         
         getTag()
-        console.log("tagId length" + tagId.length)
         return () => { isMounted=false }
 
     }, [])
@@ -130,7 +128,9 @@ export default function MyTags() {
                 </header>
 
 
-
+                <h1>
+                    {tagId.length}
+                </h1>
 
 
                 <div className="mt-10 sm:mt-0">
