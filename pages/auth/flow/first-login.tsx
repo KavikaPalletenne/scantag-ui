@@ -53,59 +53,17 @@ export default function Login() {
                         router.push("/login")
                         return
                     }
+
+                    router.push("/account")
                     }
                 });
 
             }
         }
         
-        async function getUser() {
-            
-            await fetch("https://api.scantag.co/api/v1/users/get/current", {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': bearer
-                }
-            }).then(function(response) {                
-                if(response.ok == false) {
-                    router.push({
-                        pathname: '/login',
-                        query: { autologin: false }
-                    })
-                    isMounted = false
-                }
-                if(isMounted) {
-                return response.json();
-                }
-            }).then(function(json) {  
-                if(isMounted) {
-
-
-                    setUserId(json.userId)
-                    setFirstName(json.firstName)
-                    setLastName(json.lastName)
-                    localStorage.setItem('userId', json.userId)
-                    
-                    tempUserId = json.userId
-                    tempFirstName = json.firstName
-                    tempLastName = json.lastName
-
-                    router.push({
-                        pathname: "/auth/flow/first-tag",
-                        query: { userId: tempUserId, email: email, firstName: tempFirstName, lastName: tempLastName}
-                    })
-                }
-            });
-            
-        }
-
+        
         Login()
 
-        var bearer = 'Bearer ' + localStorage.getItem('token')
-
-        getUser()
-        
 
         return () => { isMounted=false }
     }, [])
