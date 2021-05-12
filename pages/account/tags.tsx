@@ -77,8 +77,8 @@ export default function MyTags() {
                     setTagLink("https://scantag.co/t/" + json[0].tagId)
 
                     setDataLoaded(true)
-                    console.log(tagId.length)
                     
+                    console.log("tagId length" + tagId.length)
                 }
             });
 
@@ -86,6 +86,7 @@ export default function MyTags() {
         }
         
         getTag()
+        console.log("tagId length" + tagId.length)
         return () => { isMounted=false }
 
     }, [])
