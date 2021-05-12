@@ -9,11 +9,25 @@ export default function Login() {
     const router = useRouter()
 
     var [jwt, setJwt] = useState('');
+
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+
     const {email} = router.query
     const {password} = router.query
 
+    const [userId, setUserId] = useState('')
+
+    var tempFirstName
+    var tempLastName
+    var tempUserId
+
     useEffect(() => {
         
+        let isMounted = true
+
+        var tempJwt
+
         async function Login() {
             
             
@@ -29,22 +43,30 @@ export default function Login() {
                 }).then(function(response) {
                     return response.json();
                 }).then(function(json) {  
+                    if(isMounted) {
                     
+                    localStorage.setItem('token', json.jwt)
+                    setJwt(json.jwt)
+                    tempJwt = json.jwt
+
                     if(json.jwt == null) {
                         router.push("/login")
                         return
                     }
 
-                    localStorage.setItem('token', json.jwt)
-                    
                     router.push("/account")
+                    }
                 });
 
             }
         }
-
+        
+        
         Login()
-    })
+
+
+        return () => { isMounted=false }
+    }, [])
     
     
     return (

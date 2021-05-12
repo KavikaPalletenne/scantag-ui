@@ -32,7 +32,7 @@ export default function AuthFlowNew() {
         })
             
         router.push({
-            pathname: '/auth/flow/first-login',
+            pathname: '/auth/flow/login',
             query: { email: email, password: password }
         })
         
