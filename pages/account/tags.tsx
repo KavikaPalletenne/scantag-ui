@@ -41,7 +41,7 @@ export default function MyTags() {
         setJwt(tempJwt)
 
         var bearer = 'Bearer ' + tempJwt
-
+        
         async function getTag() {
             
         await fetch(`https://api.scantag.co/api/v1/tags/getAllByUserId?userId=${tempUserId}`, {
@@ -62,7 +62,7 @@ export default function MyTags() {
                 return response.json();
                 }
             }).then(function(json) {  
-                if(isMounted) {
+                if(isMounted && json[0] != null ) {
 
                     setTagId(json[0].tagId)
 
@@ -85,6 +85,7 @@ export default function MyTags() {
         }
         
         getTag()
+        
         return () => { isMounted=false }
 
     }, [])

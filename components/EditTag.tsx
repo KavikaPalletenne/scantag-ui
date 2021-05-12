@@ -133,7 +133,9 @@ export default function EditTag() {
                     <div className="px-4 py-5 bg-white sm:p-6">
                         <div className="grid grid-cols-6 gap-6">
                         
-                        
+                        <div className="col-span-6 sm:col-span-4">
+                            <h1 className="text-2xl font-medium" style={{fontFamily: 'Rubik'}} >Edit your tag</h1>
+                        </div>
                         
                         <div className="col-span-6 sm:col-span-3">
                             <label htmlFor="firstname" className="block text-sm font-medium text-gray-700">First name</label>

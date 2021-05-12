@@ -75,7 +75,7 @@ export default function EditTag() {
                 return
             }
 
-            router.push('/account/tags')
+            router.push('/account')
         })
 
     }
@@ -90,8 +90,10 @@ export default function EditTag() {
                     <div className="px-4 py-5 bg-white sm:p-6">
                         <div className="grid grid-cols-6 gap-6">
                         
-                        
-                        
+                        <div className="col-span-6 sm:col-span-4">
+                            <h1 className="text-2xl font-medium" style={{fontFamily: 'Rubik'}} >Create your first tag</h1>
+                        </div>
+
                         <div className="col-span-6 sm:col-span-3">
                             <label htmlFor="firstname" className="block text-sm font-medium text-gray-700">First name</label>
                             <input type="text" name="firstname" id="firstname" autoComplete="given-name" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onChange={e => setFirstName(e.target.value)} />
