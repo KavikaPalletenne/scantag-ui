@@ -13,10 +13,10 @@ export default function EditTag() {
     const [tagId, setTagId] = useState('')
 
     const [tagName, setTagName] = useState('')
-    const {email} = router.query
-    const {userId} = router.query
-    const {firstName} = router.query
-    const {lastName} = router.query
+    const [email, setEmail] = useState('') 
+    const [userId, setUserId] = useState('')
+    const [firstName, setFirstName] = useState('') 
+    const [lastName, setLastName] = useState('')
     const [contactNumber, setContactNumber] = useState('')
     const [info, setInfo] = useState('')
     const [address, setAddress] = useState('')
@@ -24,14 +24,16 @@ export default function EditTag() {
 
     const [tagUpdateMessage, setUpdateMessage] = useState('')
 
-    var tempJwt
+    var tempJwt, tempUserId
 
 
     useEffect (() => {
 
         let isMounted = true
         tempJwt = localStorage.getItem('token')
+        tempUserId = localStorage.getItem('userId')
         setJwt(tempJwt)
+        setUserId(tempUserId)
 
         var bearer = 'Bearer ' + tempJwt
 
@@ -92,12 +94,12 @@ export default function EditTag() {
                         
                         <div className="col-span-6 sm:col-span-3">
                             <label htmlFor="firstname" className="block text-sm font-medium text-gray-700">First name</label>
-                            <input type="text" name="firstname" id="firstname" autoComplete="given-name" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                            <input type="text" name="firstname" id="firstname" autoComplete="given-name" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onChange={e => setFirstName(e.target.value)} />
                         </div>
 
                         <div className="col-span-6 sm:col-span-3">
                             <label htmlFor="lastname" className="block text-sm font-medium text-gray-700">Last name</label>
-                            <input type="text" name="lastname" id="lastname" autoComplete="family-name" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                            <input type="text" name="lastname" id="lastname" autoComplete="family-name" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onChange={e => setLastName(e.target.value)} />
                         </div>
 
                         <div className="col-span-6 sm:col-span-3">
@@ -107,7 +109,7 @@ export default function EditTag() {
 
                         <div className="col-span-6 sm:col-span-3">
                             <label htmlFor="emailaddress" className="block text-sm font-medium text-gray-700">Email address</label>
-                            <input type="text" name="emailaddress" id="emailaddress" autoComplete="email" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                            <input type="text" name="emailaddress" id="emailaddress" autoComplete="email" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onChange={e => setEmail(e.target.value)}/>
                         </div>
 
                         <div className="col-span-6 sm:col-span-3">
