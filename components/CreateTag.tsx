@@ -60,20 +60,22 @@ export default function EditTag() {
             })
         }).then(function (response) {
             if(response.ok) {
-                setUpdateMessage('Successfully updated tag')
+                setUpdateMessage('Successfully created tag')
                 setTimeout(function(){ setUpdateMessage('') }, 5000)
-                console.log("Successfully updated tag")
+                console.log("Successfully created tag")
             }
 
             if(!response.ok) {
                 document.getElementById("details-message").className = 'text-red-500 text-sm float-left'
-                setUpdateMessage('Unable to update tag')
+                setUpdateMessage('Unable to create tag')
                 setTimeout(function(){ setUpdateMessage('') }, 5000)
                 setUpdateMessage('')
+                return
             }
+
+            router.push('/account/tags')
         })
 
-        router.push('/account')
     }
 
     return (
