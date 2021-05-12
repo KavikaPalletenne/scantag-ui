@@ -89,8 +89,7 @@ export default function MyTags() {
 
     }, [])
 
-    if(dataLoaded) {
-        return (
+    return (
 
             <div>
             
@@ -146,7 +145,5 @@ export default function MyTags() {
 
 
         )
-    }
-    
     
 }
