@@ -89,7 +89,7 @@ export default function Login() {
                         <img className="mx-auto w-28" src="https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/scantag-logo.svg" alt="Workflow"/>
                     </a>
                 </Link>
-                <h2 className="mt-6 text-center text-5xl font-extrabold text-gray-900" style={{fontFamily: "Rubik"}}>
+                <h2 className="mt-6 text-center text-2xl md:text-5xl font-extrabold text-gray-900" style={{fontFamily: "Rubik"}}>
                     Logging you in...
                 </h2>
                        

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import {SyntheticEvent, useEffect, useState} from  'react'
 import QRCode from 'qrcode.react'
+import saveSvgAsPng from 'save-svg-as-png'
 
 
 
@@ -27,6 +28,18 @@ export default function EditTag() {
     const [tagLink, setTagLink] = useState('')
 
     var tempJwt
+
+    const imageOptions = {
+        scale: 10,
+        encoderOptions: 1,
+        backgroundColor: 'white',
+      }
+
+    function saveQrCode() {
+        saveSvgAsPng.saveSvgAsPng(document.getElementById('qrcode'), 'ScanTag.png', imageOptions);
+    };
+    
+
 
     useEffect (() => {
 
@@ -81,6 +94,9 @@ export default function EditTag() {
         }
         
         getTag()
+        
+
+       
         return () => { isMounted=false }
 
     }, [])
@@ -125,6 +141,9 @@ export default function EditTag() {
 
     return (
         <div className="mt-10 sm:mt-0">
+
+            
+
             <div className="max-w-3xl md:m-auto md:w-1/2 md:py-32">
                 
                 <div className="mt-5 md:mt-0 md:col-span-2">
@@ -162,19 +181,29 @@ export default function EditTag() {
                             <input type="text" defaultValue={contactNumber} name="contactnumber" id="contactnumber" autoComplete="tel" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onChange={e => setContactNumber(e.target.value)}/>
                         </div>
 
-                        <QRCode value={tagLink} renderAs='svg'/>
-
+                       
                         <div className="col-span-6 sm:col-span-4">
                             <label htmlFor="address" className="block text-sm font-medium text-gray-700">Return address</label>
-                            <input type="text" defaultValue={address} name="address" id="address" autoComplete="street-address" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onChange={e => setAddress(e.target.value)}/>
-                        </div>
+                            <input type="text" defaultValue={address} name="address" id="autocomplete" autoComplete="street-address" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onChange={e => setAddress(e.target.value)}/>
+                        </div> 
 
                         <div className="col-span-6 sm:col-span-4">
                             <label htmlFor="info" className="block text-sm font-medium text-gray-700">Additional info</label>
                             <input type="text" defaultValue={info} name="info" id="info" autoComplete="none" className="mt-1 focus:ring-orange focus:border-orange block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onChange={e => setInfo(e.target.value)}/>
                         </div>
+
                         
                         </div>
+
+                        <div className="pt-10">
+                        <QRCode id={"qrcode"} value={tagLink} className="pb-1 col-span-3" renderAs='svg'/>
+                        
+                        <div className="pt-5">
+                        <button onClick={saveQrCode} className="py-2 px-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-orange hover:bg-orange-light">Save QR Code</button>
+                        </div>
+                        </div>
+
+
                     </div>
                     <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
                         <p id="details-message" className = "text-orange text-sm float-left">{tagUpdateMessage}</p>
@@ -186,7 +215,7 @@ export default function EditTag() {
                 </form>
 
                 
-
+                
                 </div>
             </div>
         </div>
