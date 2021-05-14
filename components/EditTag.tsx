@@ -1,15 +1,18 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import {SyntheticEvent, useEffect, useState} from  'react'
+import {SyntheticEvent, useEffect, useState } from  'react'
 import QRCode from 'qrcode.react'
 import saveSvgAsPng from 'save-svg-as-png'
+import ScaleLoader from "react-spinners/ScaleLoader"
 
 
 
 export default function EditTag() {
 
     const router = useRouter()
+
+    const [loading, setLoading] = useState(true)
 
     const [jwt, setJwt] = useState('')
     const [tagId, setTagId] = useState('')
@@ -86,6 +89,8 @@ export default function EditTag() {
                     setInfo(json[0].info)
                     setEnableNotifications(json[0].enableNotifications)
                     setTagLink("https://scantag.co/t/" + json[0].tagId)
+
+                    setLoading(false)
                     
                 }
             });
@@ -138,6 +143,30 @@ export default function EditTag() {
         })
 
     }
+
+
+    if(loading) {
+        return (
+        
+        <div className="transform translate-x-1 pt-10">
+            <Head>
+                <meta charSet="utf-8" />
+                <meta name="robots" content="noindex" />
+                <meta name="googlebot" content="noindex" />
+                <title>Loading... - My Tags</title>
+                <link rel="icon" href="https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/scantag-logo.svg" />
+            </Head>
+
+            <h1 className="text-center md:pt-52 pt-20  " style={{fontFamily: "Rubik"}}>
+                <ScaleLoader color={"#FF9369"} width={10} height={75} radius={15} margin={'10px'}/>
+            </h1> 
+        </div> 
+        
+
+        )
+    }
+
+
 
     return (
         <div className="mt-10 sm:mt-0">
@@ -199,7 +228,7 @@ export default function EditTag() {
                         <QRCode id={"qrcode"} value={tagLink} className="pb-1 col-span-3" renderAs='svg'/>
                         
                         <div className="pt-5">
-                        <button onClick={saveQrCode} className="py-2 px-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-orange hover:bg-orange-light">Save QR Code</button>
+                        <button type="button" onClick={saveQrCode} className="py-2 px-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-orange hover:bg-orange-light">Save QR Code</button>
                         </div>
                         </div>
 

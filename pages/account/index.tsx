@@ -2,13 +2,14 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import {SyntheticEvent, useEffect, useState} from  'react'
+import ScaleLoader from "react-spinners/ScaleLoader"
 
 
 export default function MyAccount() {
     
     const router = useRouter()
 
-    const [isBusy, setBusy] = useState(true);
+    const [loading, setLoading] = useState(true)
     
     // User Variables
     const [jwt, setJwt] = useState('')
@@ -65,6 +66,8 @@ export default function MyAccount() {
                     setEmail(json.email)
                     setEnableNotifications(json.enableNotifications)
                     setRole(json.role)
+
+                    setLoading(false)
                     
                 }
             });
@@ -109,7 +112,29 @@ export default function MyAccount() {
         })
     }
 
-    
+    if(loading) {
+        return (
+        
+        <div className="transform translate-x-1 pt-10">
+            <Head>
+                <meta charSet="utf-8" />
+                <meta name="robots" content="noindex" />
+                <meta name="googlebot" content="noindex" />
+                <title>Loading... - My Account</title>
+                <link rel="icon" href="https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/scantag-logo.svg" />
+            </Head>
+
+            <h1 className="text-center md:pt-52 pt-20  " style={{fontFamily: "Rubik"}}>
+                <ScaleLoader color={"#FF9369"} width={10} height={75} radius={15} margin={'10px'}/>
+            </h1> 
+        </div> 
+        
+
+        )
+    }
+
+
+
     return (
       
     <div>
