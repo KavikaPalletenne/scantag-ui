@@ -55,7 +55,7 @@ export default function Login() {
                 return
             }
 
-            router.push("/account/tags")
+            router.push("/account")
         });
     }
     
