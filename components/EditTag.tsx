@@ -33,13 +33,17 @@ export default function EditTag() {
     var tempJwt
 
     const imageOptions = {
-        scale: 10,
+        scale: 75,
         encoderOptions: 1,
         backgroundColor: 'white',
       }
+    
 
     function saveQrCode() {
-        saveSvgAsPng.saveSvgAsPng(document.getElementById('qrcode'), 'ScanTag.png', imageOptions);
+
+        var qrCodeImageName = 'ScanTag - ' + tagName + '.png'
+
+        saveSvgAsPng.saveSvgAsPng(document.getElementById('qrcode'), qrCodeImageName , imageOptions);
     };
     
 
@@ -89,6 +93,7 @@ export default function EditTag() {
                     setInfo(json[0].info)
                     setEnableNotifications(json[0].enableNotifications)
                     setTagLink("https://scantag.co/t/" + json[0].tagId)
+
 
                     setLoading(false)
                     
