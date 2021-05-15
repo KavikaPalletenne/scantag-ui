@@ -120,7 +120,7 @@ export default function MyAccount() {
                 <meta charSet="utf-8" />
                 <meta name="robots" content="noindex" />
                 <meta name="googlebot" content="noindex" />
-                <title>Loading... - My Account</title>
+                <title>My Account - ScanTag</title>
                 <link rel="icon" href="https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/scantag-logo.svg" />
             </Head>
 

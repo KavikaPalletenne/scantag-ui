@@ -143,7 +143,7 @@ export default function MyTags() {
                 <meta charSet="utf-8" />
                 <meta name="robots" content="noindex" />
                 <meta name="googlebot" content="noindex" />
-                <title>Loading... - My Tags</title>
+                <title>My Tags - ScanTag</title>
                 <link rel="icon" href="https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/scantag-logo.svg" />
             </Head>
 
