@@ -37,7 +37,7 @@ export default function MyAccount() {
 
         async function getUser() {
 
-            await fetch("https://api.scantag.co/api/v1/users/get/current", {
+            await fetch("https://api.scantag.co/v1/users/get/current", {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ export default function MyAccount() {
         
         setUpdateMessage('')
 
-        fetch(`https://api.scantag.co/api/v1/users/update?id=${userId}`, {
+        fetch(`https://api.scantag.co/v1/users/update?id=${userId}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -44,7 +44,7 @@ export default function EditTag() {
 
         setUpdateMessage('')
 
-        fetch(`https://api.scantag.co/api/v1/tags/create?userId=${userId}`, {
+        fetch(`https://api.scantag.co/v1/tags/create?userId=${userId}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

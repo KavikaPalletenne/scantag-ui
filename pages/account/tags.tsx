@@ -49,7 +49,7 @@ export default function MyTags() {
 
         async function getUser() {
 
-            await fetch("https://api.scantag.co/api/v1/users/get/current", {
+            await fetch("https://api.scantag.co/v1/users/get/current", {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -87,7 +87,7 @@ export default function MyTags() {
         
         async function getTag() {
             
-        await fetch(`https://api.scantag.co/api/v1/tags/getAllByUserId?userId=${tempUserId}`, {
+        await fetch(`https://api.scantag.co/v1/tags/getAllByUserId?userId=${tempUserId}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

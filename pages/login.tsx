@@ -35,7 +35,7 @@ export default function Login() {
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
         
-        await fetch("https://api.scantag.co/api/v1/auth/authenticate", {
+        await fetch("https://api.scantag.co/v1/auth/authenticate", {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({

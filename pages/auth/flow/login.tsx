@@ -33,7 +33,7 @@ export default function Login() {
             
             if(email != null && password != null) {
                 
-                await fetch("https://api.scantag.co/api/v1/auth/authenticate", {
+                await fetch("https://api.scantag.co/v1/auth/authenticate", {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({

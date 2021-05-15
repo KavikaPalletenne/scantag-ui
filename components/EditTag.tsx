@@ -58,7 +58,7 @@ export default function EditTag() {
 
         async function getTag() {
             
-        await fetch(`https://api.scantag.co/api/v1/tags/getAllByUserId?userId=${tempUserId}`, {
+        await fetch(`https://api.scantag.co/v1/tags/getAllByUserId?userId=${tempUserId}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -111,7 +111,7 @@ export default function EditTag() {
 
         setUpdateMessage('')
 
-        fetch(`https://api.scantag.co/api/v1/tags/update?tagId=${tagId}`, {
+        fetch(`https://api.scantag.co/v1/tags/update?tagId=${tagId}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

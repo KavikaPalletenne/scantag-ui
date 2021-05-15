@@ -23,7 +23,7 @@ export default function Register() {
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
 
-        var getUserURL = "https://api.scantag.co/api/v1/users/getByEmail?email=" + email
+        var getUserURL = "https://api.scantag.co/v1/users/getByEmail?email=" + email
 
         setErrorMessage('')
 

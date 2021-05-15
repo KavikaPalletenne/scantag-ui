@@ -12,7 +12,7 @@ export default function ForgotPassword() {
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
 
-        await fetch("https://api.scantag.co/api/v1/auth/forgotPassword?email=" + username, {
+        await fetch("https://api.scantag.co/v1/auth/forgotPassword?email=" + username, {
             method: 'POST'
         }).then(function(response) {
             return response.json();
