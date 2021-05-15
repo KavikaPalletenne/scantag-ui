@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from  'react'
-import BarLoader from "react-spinners/ClipLoader";
+import ScaleLoader from "react-spinners/ScaleLoader";
 
 
 
@@ -77,10 +77,26 @@ export default function EditTag() {
 
     }, [router.isReady, firstName, lastName, tagName, email, contactNumber, address, info])
 
-    while(loading) {
+  
+    if(loading) {
         return (
-            <div>
-            </div>
+        
+        <div>
+            <Head>
+                <meta charSet="utf-8" />
+                <meta name="robots" content="noindex" />
+                <meta name="googlebot" content="noindex" />
+                <title>{firstName}'s ScanTag</title>
+                <link rel="icon" href="https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/scantag-logo.svg" />
+            </Head>
+
+        
+            <h1 className="text-center md:pt-52 pt-20  " style={{fontFamily: "Rubik"}}>
+                <ScaleLoader color={"#FF9369"} width={6} height={50} radius={10} margin={'10px'}/>
+            </h1> 
+        </div> 
+        
+
         )
     }
 
