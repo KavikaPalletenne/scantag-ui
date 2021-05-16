@@ -75,7 +75,7 @@ export default function EditTag() {
                 return
             }
 
-            router.push('/account')
+            router.push('/account/tags')
         })
 
     }
