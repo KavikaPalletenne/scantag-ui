@@ -14,6 +14,8 @@ export default function Login() {
 
     const {autologin} = router.query
 
+    var isMounted = false
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     
@@ -32,6 +34,8 @@ export default function Login() {
 
     
     async function getUser() {
+
+        var bearer = 'Bearer ' + localStorage.getItem('token')
 
         await fetch("https://api.scantag.co/v1/users/get/current", {
                 method: 'GET',
