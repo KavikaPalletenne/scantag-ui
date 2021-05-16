@@ -118,10 +118,10 @@ export default function MyTags() {
                     setInfo(json[0].info)
                     setEnableNotifications(json[0].enableNotifications)
                     setTagLink("https://scantag.co/t/" + json[0].tagId)
-
-                    setLoading(false)
                     
                 }
+
+                setLoading(false)
             });
 
             
