@@ -31,6 +31,35 @@ export default function Login() {
     }, [])
 
     
+    async function getUser() {
+
+        await fetch("https://api.scantag.co/v1/users/get/current", {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': bearer
+                }
+            }).then(function(response) {                
+                if(response.ok == false) {
+                    router.push({
+                        pathname: '/login',
+                        query: { autologin: false }
+                    })
+                    isMounted = false
+                }
+                if(isMounted) {
+                return response.json();
+                }
+            }).then(function(json) {  
+                if(isMounted) {
+
+                    localStorage.setItem('userId', json.userId)
+                    
+                }
+            });
+    }
+
+
     
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
@@ -47,6 +76,8 @@ export default function Login() {
         }).then(function(json) {
                     
             localStorage.setItem('token', json.jwt)
+           
+            getUser()
 
             if(json.jwt == null) {
                 document.getElementById("invalidCredentialsText").className = "text-red-500 text-sm float-left pl-1 pb-5 pt-2"
