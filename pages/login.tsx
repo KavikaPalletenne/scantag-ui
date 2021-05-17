@@ -98,7 +98,7 @@ export default function Login() {
             
             bearer = 'Bearer ' + json.jwt
 
-            getUser()
+            router.push("/account")
         });
 
     }
