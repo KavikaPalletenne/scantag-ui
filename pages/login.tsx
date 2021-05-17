@@ -95,15 +95,37 @@ export default function Login() {
             
             loggedIn = true
             
-            
+            var bearer = 'Bearer ' + localStorage.getItem('token')
+
+            fetch("https://api.scantag.co/v1/users/get/current", {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': bearer
+                    }
+                }).then(function(response) {                
+                    if(response.ok == false) {
+                        router.push({
+                            pathname: '/login',
+                            query: { autologin: false }
+                        })
+                        isMounted = false
+                    }
+                    if(isMounted) {
+                    return response.json();
+                    }
+                }).then(function(json) {  
+                    if(isMounted) {
+
+                        localStorage.setItem('userId', json.userId)
+
+                        userIdLoaded = true
+                        router.push("/account/tags")
+                        
+                    }
+                });
         });
 
-        await getUser()
-
-        while(loggedIn) {
-            router.push("/account/tags")
-            return
-        }
     }
     
     return (
