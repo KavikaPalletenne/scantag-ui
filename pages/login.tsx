@@ -100,8 +100,9 @@ export default function Login() {
 
         await getUser()
 
-        if(loggedIn) {
+        while(loggedIn) {
             router.push("/account/tags")
+            return
         }
     }
     
