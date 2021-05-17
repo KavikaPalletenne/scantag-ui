@@ -34,10 +34,11 @@ export default function Login() {
         CheckLoggedIn()
     }, [])
 
-    
+    var bearer
+
     function getUser() {
 
-        var bearer = 'Bearer ' + localStorage.getItem('token')
+        bearer = 'Bearer ' + localStorage.getItem('token')
 
         fetch("https://api.scantag.co/v1/users/get/current", {
                 method: 'GET',
@@ -62,6 +63,7 @@ export default function Login() {
                     localStorage.setItem('userId', json.userId)
 
                     userIdLoaded = true
+                    router.push("/account/tags")
                     
                 }
             });
@@ -82,48 +84,21 @@ export default function Login() {
         }).then(function(response) {
             return response.json();
         }).then(function(json) {
-                    
-            localStorage.setItem('token', json.jwt)
             
-
             if(json.jwt == null) {
                 document.getElementById("invalidCredentialsText").className = "text-red-500 text-sm float-left pl-1 pb-5 pt-2"
                 setErrorMessage("Invalid email or password")
                 localStorage.removeItem('token')
                 return
             }
+
+            localStorage.setItem('token', json.jwt)
             
             loggedIn = true
             
-            var bearer = 'Bearer ' + localStorage.getItem('token')
+            bearer = 'Bearer ' + json.jwt
 
-            fetch("https://api.scantag.co/v1/users/get/current", {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': bearer
-                    }
-                }).then(function(response) {                
-                    if(response.ok == false) {
-                        router.push({
-                            pathname: '/login',
-                            query: { autologin: false }
-                        })
-                        isMounted = false
-                    }
-                    if(isMounted) {
-                    return response.json();
-                    }
-                }).then(function(json) {  
-                    if(isMounted) {
-
-                        localStorage.setItem('userId', json.userId)
-
-                        userIdLoaded = true
-                        router.push("/account/tags")
-                        
-                    }
-                });
+            getUser()
         });
 
     }
