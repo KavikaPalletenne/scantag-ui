@@ -15,6 +15,7 @@ export default function Login() {
     const {autologin} = router.query
 
     var isMounted = false
+    var userIdLoaded = false
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -58,6 +59,8 @@ export default function Login() {
                 if(isMounted) {
 
                     localStorage.setItem('userId', json.userId)
+
+                    userIdLoaded = true
                     
                 }
             });
@@ -87,6 +90,10 @@ export default function Login() {
                 setErrorMessage("Invalid email or password")
                 localStorage.removeItem('token')
                 return
+            }
+
+            while(!userIdLoaded) {
+                
             }
 
             router.push("/account/tags")
