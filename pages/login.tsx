@@ -16,6 +16,7 @@ export default function Login() {
 
     var isMounted = false
     var userIdLoaded = false
+    var loggedIn = false
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -34,11 +35,11 @@ export default function Login() {
     }, [])
 
     
-    function getUser() {
+    async function getUser() {
 
         var bearer = 'Bearer ' + localStorage.getItem('token')
 
-        fetch("https://api.scantag.co/v1/users/get/current", {
+        await fetch("https://api.scantag.co/v1/users/get/current", {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -83,7 +84,7 @@ export default function Login() {
         }).then(function(json) {
                     
             localStorage.setItem('token', json.jwt)
-            getUser()
+            
 
             if(json.jwt == null) {
                 document.getElementById("invalidCredentialsText").className = "text-red-500 text-sm float-left pl-1 pb-5 pt-2"
@@ -91,13 +92,17 @@ export default function Login() {
                 localStorage.removeItem('token')
                 return
             }
-
-            while(!userIdLoaded) {
-                
-            }
-
-            router.push("/account/tags")
+            
+            loggedIn = true
+            
+            
         });
+
+        await getUser()
+
+        if(loggedIn) {
+            router.push("/account/tags")
+        }
     }
     
     return (
