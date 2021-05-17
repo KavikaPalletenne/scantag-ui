@@ -35,11 +35,11 @@ export default function Login() {
     }, [])
 
     
-    async function getUser() {
+    function getUser() {
 
         var bearer = 'Bearer ' + localStorage.getItem('token')
 
-        await fetch("https://api.scantag.co/v1/users/get/current", {
+        fetch("https://api.scantag.co/v1/users/get/current", {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
