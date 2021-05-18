@@ -99,7 +99,7 @@ export default function Login() {
             
             bearer = 'Bearer ' + json.jwt
 
-            router.push("/account")
+            router.push("/account/tags")
         });
 
     }
