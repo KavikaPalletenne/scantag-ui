@@ -32,7 +32,7 @@ export default function MyTags() {
     const [tagUpdateMessage, setUpdateMessage] = useState('')
     const [tagLink, setTagLink] = useState('')
 
-    var tempJwt
+    var tempJwt, tempTagId
 
     useEffect (() => {
 
@@ -108,6 +108,8 @@ export default function MyTags() {
                 if(isMounted && json[0] != null ) {
 
                     setTagId(json[0].tagId)
+
+                    tempTagId = json[0].tagId
 
                     setFirstName(json[0].firstName)
                     setLastName(json[0].lastName)
@@ -222,7 +224,7 @@ export default function MyTags() {
 
                 <div className="mt-10 sm:mt-0">
                     {
-                        tagId.length != 12 ?
+                        tempTagId.length != 12 ?
                         <CreateTag/> :
                         <EditTag/>
                     }
