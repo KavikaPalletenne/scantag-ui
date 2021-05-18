@@ -93,6 +93,7 @@ export default function Login() {
             }
 
             localStorage.setItem('token', json.jwt)
+            localStorage.setItem('userId', json.userId)
             
             loggedIn = true
             
