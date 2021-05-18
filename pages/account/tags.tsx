@@ -150,7 +150,7 @@ export default function MyTags() {
             <header>
                     
                     <div className="md:pt-10 md:pl-32 text-white md:pr-32 pt-10 pl-5 pr-5">
-                        <Link  href="/account">
+                        <Link  href="/account/tags">
                             <a>
                                 <img className="float-left md:w-20 w-12" src="https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/scantag-logo.svg"/>
                             </a>
@@ -197,7 +197,7 @@ export default function MyTags() {
                 <header>
                     
                     <div className="md:pt-10 md:pl-32 text-white md:pr-32 pt-10 pl-5 pr-5">
-                        <Link  href="/account">
+                        <Link  href="/account/tags">
                             <a>
                                 <img className="float-left md:w-20 w-12" src="https://raw.githubusercontent.com/KavikaPalletenne/scantag-assets/main/scantag-logo.svg"/>
                             </a>
