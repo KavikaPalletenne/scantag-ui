@@ -46,6 +46,7 @@ export default function Login() {
                     if(isMounted) {
                     
                     localStorage.setItem('token', json.jwt)
+                    localStorage.setItem('userId', json.userId)
                     setJwt(json.jwt)
                     tempJwt = json.jwt
 
