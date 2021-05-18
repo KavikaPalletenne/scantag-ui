@@ -32,7 +32,8 @@ export default function MyTags() {
     const [tagUpdateMessage, setUpdateMessage] = useState('')
     const [tagLink, setTagLink] = useState('')
 
-    var tempJwt, tempTagId
+    var tempJwt
+    var tempTagId = ''
 
     useEffect (() => {
 
