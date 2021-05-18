@@ -34,42 +34,6 @@ export default function Login() {
         CheckLoggedIn()
     }, [])
 
-    var bearer
-
-    async function getUser() {
-
-        bearer = 'Bearer ' + localStorage.getItem('token')
-
-        await fetch("https://api.scantag.co/v1/users/get/current", {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': bearer
-                }
-            }).then(function(response) {                
-                if(response.ok == false) {
-                    router.push({
-                        pathname: '/login',
-                        query: { autologin: false }
-                    })
-                    isMounted = false
-                }
-                if(isMounted) {
-                return response.json();
-                }
-            }).then(function(json) {  
-                if(isMounted) {
-
-                    localStorage.setItem('userId', json.userId)
-
-                    userIdLoaded = true
-                    router.push("/account/tags")
-                    
-                }
-            });
-    }
-
-
     
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
@@ -96,8 +60,6 @@ export default function Login() {
             localStorage.setItem('userId', json.userId)
             
             loggedIn = true
-            
-            bearer = 'Bearer ' + json.jwt
 
             router.push("/account/tags")
         });
