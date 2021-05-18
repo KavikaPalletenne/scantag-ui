@@ -6,7 +6,7 @@ import ScaleLoader from "react-spinners/ScaleLoader";
 
 
 
-export default function EditTag() {
+export default function TagView() {
 
     const router = useRouter()
 
