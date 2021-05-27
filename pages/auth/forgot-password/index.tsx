@@ -1,23 +1,32 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import {SyntheticEvent, useState} from  'react'
+import { useRouter } from 'next/router'
 
 
 export default function ForgotPassword() {
     
-    const [username, setUsername] = useState('');
+    const router = useRouter()
 
-    var message;
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
     
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
 
-        await fetch("https://api.scantag.co/v1/auth/forgotPassword?email=" + username, {
+        setMessage('')
+
+        await fetch("https://api.scantag.co/v1/auth/forgotPassword?email=" + email, {
             method: 'POST'
         }).then(function(response) {
+            if(response.ok) {
+                router.push('/auth/forgot-password/success')
+            }
+
             return response.json();
         }).then(function(json) {
-            message = json.body;
+            setMessage(json.body)
+            document.getElementById("invalidCredentialsText").className = "text-red-500 text-sm float-left pl-1 pb-5 pt-2"
         });
     }
     
@@ -57,8 +66,8 @@ export default function ForgotPassword() {
                 <input type="hidden" name="remember" value="true"/>
                 <div className="rounded-md shadow-sm -space-y-px">
                     <div>
-                    <label htmlFor="username" className="sr-only">Email address</label>
-                    <input id="username" name="username" type="email" autoComplete="email" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:ring-orange focus:border-orange focus:z-10 sm:text-sm" placeholder="Email address" onChange={e => setUsername(e.target.value)}/>
+                    <label htmlFor="email" className="sr-only">Email address</label>
+                    <input id="email" name="email" type="email" autoComplete="email" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:ring-orange focus:border-orange focus:z-10 sm:text-sm" placeholder="Email address" onChange={e => setEmail(e.target.value)}/>
                     </div>
                 </div>
 
@@ -67,6 +76,7 @@ export default function ForgotPassword() {
                         Submit
                     </button>
                 </div>
+                <p id="invalidCredentialsText" className="text-transparent text-sm float-left pl-1 pb-5 pt-2">{message}</p>
                 </form>
             </div>
         </div>
