@@ -22,7 +22,8 @@ export default function Login() {
     const [password, setPassword] = useState('');
     
     useEffect(() => {
-        
+       
+        /**
         function CheckLoggedIn() {
 
             if (localStorage.getItem('token') != null && autologin != 'false') {
@@ -32,6 +33,9 @@ export default function Login() {
         }
 
         CheckLoggedIn()
+
+        */
+
     }, [])
 
     
