@@ -19,15 +19,8 @@ export default function ForgotPassword() {
         await fetch("https://api.scantag.co/v1/auth/forgotPassword?email=" + email, {
             method: 'POST'
         }).then(function(response) {
-            if(response.ok) {
-                router.push('/auth/forgot-password/success')
-            }
-
-            return response.json();
-        }).then(function(json) {
-            setMessage(json.body)
-            document.getElementById("invalidCredentialsText").className = "text-red-500 text-sm float-left pl-1 pb-5 pt-2"
-        });
+            router.push('/auth/forgot-password/success')
+        })
     }
     
     return (
@@ -76,7 +69,6 @@ export default function ForgotPassword() {
                         Submit
                     </button>
                 </div>
-                <p id="invalidCredentialsText" className="text-transparent text-sm float-left pl-1 pb-5 pt-2">{message}</p>
                 </form>
             </div>
         </div>
