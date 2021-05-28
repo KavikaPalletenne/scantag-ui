@@ -145,18 +145,19 @@ export default function TagView() {
                     <h2 className="md:text-xl text-md pb-1 font-medium" style={{fontFamily: 'Rubik'}}>Info</h2>
                     <h2 className="md:text-xl text-md pb-5" style={{fontFamily: 'Rubik'}}>{info}</h2>
                     
+                    <p className="mt-2 pt-5 text-center text-sm text-gray-600">
+                    
+                        <Link href="/register">
+                            <a className="font-medium text-orange hover:text-orange-light">
+                                Sign up for an account
+                            </a>
+                        </Link>
+                    </p>
 
                     
                 </div>
 
-                <p className="mt-2 text-center text-sm text-gray-600">
-                    
-                    <Link href="/register">
-                        <a className="pl-1 font-medium text-orange hover:text-orange-light">
-                            Sign up for an account
-                        </a>
-                    </Link>
-                </p>
+                
             
                 </div>
                 
