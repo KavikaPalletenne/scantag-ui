@@ -148,6 +148,15 @@ export default function TagView() {
 
                     
                 </div>
+
+                <p className="mt-2 text-center text-sm text-gray-600">
+                    
+                    <Link href="/register">
+                        <a className="pl-1 font-medium text-orange hover:text-orange-light">
+                            Sign up for an account
+                        </a>
+                    </Link>
+                </p>
             
                 </div>
                 
