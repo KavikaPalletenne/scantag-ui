@@ -10,7 +10,7 @@ export default function Home() {
 
         <Head>
           <meta charset="utf-8" />
-          <meta name="description" content="ScanTag allows you to easily find your lost items. Whenever someone scans your QR code, we send you a notification. The finder can also see your contact details on your personal ScanTag page." />
+          <meta name="description" content="ScanTag allows you to easily find your lost items. Stick your tag on a book, phone, or anything else and help people return it to you easily." />
           <meta name="robots" content="all" />
           <meta name="googlebot" content="all" />
           <title>ScanTag - Find Your Lost Items Quicker</title>
