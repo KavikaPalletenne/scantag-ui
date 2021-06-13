@@ -92,7 +92,7 @@ export default function EditTag() {
                     setAddress(json[0].address)
                     setInfo(json[0].info)
                     setEnableNotifications(json[0].enableNotifications)
-                    setTagLink("https://scantag.co/t/" + json[0].tagId)
+                    setTagLink("https://beta.scantag.co/t/" + json[0].tagId)
 
 
                     setLoading(false)
