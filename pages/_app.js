@@ -7,7 +7,14 @@ Router.events.on('routeChangeStart', () => NProgress.start()); Router.events.on(
 
 function MyApp({ Component, pageProps }) {
   return ( 
-      <Component {...pageProps} />
+      <div>
+        
+        <div style={{fontFamily: 'Rubik'}} className="bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 text-center text-white text-sm md:text-lg">
+          <h1>This is a beta version of ScanTag not for public use (v.DEV.0.100)</h1>
+        </div>
+
+        <Component {...pageProps} />
+      </div>
   )
 }
 
