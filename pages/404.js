@@ -15,7 +15,7 @@ export default function Custom404() {
         </Head>
 
         
-        <header className="h-screen min-h-full">
+        <header className="h-screen min-h-full overflow-hidden">
             
             <div className="xl:pt-10 xl:pl-32 text-white xl:pr-32 pt-10 pl-5 pr-5">
                 <Link href="/">
